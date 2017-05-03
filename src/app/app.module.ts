@@ -8,9 +8,9 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { Users } from '../pages/users/users';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {Treatments} from "../pages/treatments/treatments";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    Users
+    Users,
+    Treatments
   ],
   imports: [
     BrowserModule,
@@ -30,12 +31,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    Users
+    Users,
+    Treatments
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Users,
+      Treatments,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

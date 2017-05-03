@@ -1,0 +1,37 @@
+<!--
+  Generated template for the Treatments page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>treatments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Treatments</h2>
+  <div>
+    create a new treatment
+  </div>
+  <!--<label>select patient</label>-->
+  <label>patient ID</label>
+  <input type="text" placeholder="write patient ID here">
+
+
+  <section *ngIf="patient">
+    <h3>patient details</h3>
+    <label >{{patient.first_name}}</label>
+    <label >{{patient.last_name}}</label>
+
+    <label >birth date</label>
+    <span>{{patient.birth_date | date: 'dd-MM-yyyy'}}</span>
+  </section>
+  
+
+
+</ion-content>
