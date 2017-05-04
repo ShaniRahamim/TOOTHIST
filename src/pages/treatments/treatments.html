@@ -21,17 +21,27 @@
   <!--<label>select patient</label>-->
   <label>patient ID</label>
   <input type="text" placeholder="write patient ID here">
-
+  <button (click)="searchPatient()">search</button>
 
   <section *ngIf="patient">
     <h3>patient details</h3>
-    <label >{{patient.first_name}}</label>
-    <label >{{patient.last_name}}</label>
+    <label >{{patient.first_name + ' ' + patient.last_name}}</label>
 
     <label >birth date</label>
     <span>{{patient.birth_date | date: 'dd-MM-yyyy'}}</span>
+
+    <label >father name</label>
+    <span>{{patient.father_name}}</span>
+
+    <button (click)="startTreatment()">start treatment!</button>
+
+    <div *ngIf="recording">
+      recording..
+    </div>
+
   </section>
-  
 
-
+  <!--<div *ngif="recording">
+    recording..
+  </div>-->
 </ion-content>

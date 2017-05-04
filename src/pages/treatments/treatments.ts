@@ -16,17 +16,29 @@ import { IonicPage } from 'ionic-angular';
 export class Treatments {
   private patient : Object;
 
+  public recording : boolean;
+
   constructor() {
-    this.patient = {first_name: 'Donald' ,
+    this.patient = null;
+    this.recording = false;
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Treatments');
+
+  }
+
+  searchPatient(){
+    this.patient = {
+      first_name: 'Donald' ,
       last_name: 'Trump',
       birth_date: new Date(),
       father_name: 'Avi Trump'
     };
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Treatments');
-
+  startTreatment(){
+    this.recording = true;
   }
 
 }
