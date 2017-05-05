@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>התחברות</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15b014ad55bbef01&attid=0.2&disp=inline&realattid=f_j0o30zls1&safe=1&attbid=ANGjdJ-vSaIYe2FlZAwTS3VSVSh-Bg83Tmzc2ZuP0CuAq5X0D9b3loRRdJ2orbtTSSC7b3ZsYh8opOXRE4Gpb64XzNeg9MLg6XVi9pbGaRtn-zYVygJiy21_5rHduEM&ats=1493887441956&rm=15b014ad55bbef01&zw&sz=w3200-h1477"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+
+    <form (ngSubmit)="register()" #registerForm="ngForm" dir="rtl">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="number" placeholder="תעודת זהות" name="id" [(ngModel)]="registerCredentials.id" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="שם פרטי" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="שם משפחה" name="last_name" [(ngModel)]="registerCredentials.last_name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="איימל" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="סיסמא" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">הירשם</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

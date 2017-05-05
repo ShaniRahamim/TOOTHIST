@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title dir="rtl">
+      ברוך הבא {{username}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+  <body dir="rtl">
+  <table border="1">
+    <tr>
+      <td></td>
+      <th colspan="3">כותרת לעמודות</th>
+    </tr>
+    <tr>
+      <th rowspan="3">כותרת לשורות</th>
+      <td>שורה 1, תא 1</td>
+      <td>שורה 1, תא 2</td>
+      <td>שורה 1, תא 3</td>
+    </tr>
+    <tr>
+      <td>שורה 2, תא 1</td>
+      <td>שורה 2, תא 2</td>
+      <td>שורה 2, תא 3</td>
+    </tr>
+    <tr>
+      <td>שורה 3, תא 1</td>
+      <td>שורה 3, תא 2</td>
+      <td>שורה 3, תא 3</td>
+    </tr>
+  </table>
+  </body>
+
+  <button ion-button class="button button-small"  align-self-baseline="flex-start">יצירת מטופל חדש</button>
+
+</ion-content>
