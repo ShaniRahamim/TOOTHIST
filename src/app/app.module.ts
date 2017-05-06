@@ -12,6 +12,7 @@ import { Users } from '../pages/users/users';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {Treatments} from "../pages/treatments/treatments";
+import {ClientService} from "../providers/client-service";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {Treatments} from "../pages/treatments/treatments";
     AuthService,
     Users,
       Treatments,
+    ClientService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -3,11 +3,13 @@ import { Http } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {User} from "../pages/users/users";
+import {Client} from "../pages/clients/clients";
 
 
 @Injectable()
 export class AuthService {
   currentUser: User;
+  currentClient: Client;
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
@@ -18,6 +20,19 @@ export class AuthService {
         let access = (credentials.password === "pass" && credentials.email === "email");
         this.currentUser = new User('Simon', 'saimon@devdactic.com', 'Lala', 234524312);
         observer.next(access);
+        observer.complete();
+      });
+    }
+  }
+
+  public addNewClient(credentials) {
+    if (credentials.id === null || credentials.name === null || credentials.last_name == null ||
+      credentials.dateOfBirth == null || credentials.email == null ) {
+      return Observable.throw("Please insert credentials");
+    } else {
+      // At this point store the credentials to your backend!
+      return Observable.create(observer => {
+        observer.next(true);
         observer.complete();
       });
     }

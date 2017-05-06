@@ -1,3 +1,14 @@
 page-home {
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 20px;
+  }
 
+  .test{
+    height:20px;
+    width:20px;
+  }
 }

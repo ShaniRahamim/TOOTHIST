@@ -43,4 +43,8 @@ export class Home {
     });
   }
 
+  public createClient() {
+    this.nav.push('AddClient');
+  }
+
 }
