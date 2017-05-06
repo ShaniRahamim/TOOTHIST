@@ -17,6 +17,11 @@ export class EditClient {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  public editClient(client){
+
+
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditClient');
