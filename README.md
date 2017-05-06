@@ -22,7 +22,8 @@ in order to compile it and run in on your device:
 
 ionic run android --device
 
-read the output of the command, it may ask you to install the java sdk, 
+read the output of the command, it may ask you to install the java sdk (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
+ 
 follow its instructions and then: 
 
 copy the output file to your device and run it :) 
