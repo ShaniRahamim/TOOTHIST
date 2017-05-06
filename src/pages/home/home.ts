@@ -2,19 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import {AuthService} from '../../providers/auth-service';
 import {User} from "../users/users";
+import {Client} from "../clients/clients";
 
-const USERS: User[] = [
-  { id: 11, name: 'Mr. Nice', last_name: 'Dior', email: "Mr. Nice@walla.com"},
-  { id: 12, name: 'Narco' ,last_name: 'Dior', email: "Narco@walla.com"},
-  { id: 13, name: 'Bombasto' ,last_name: 'Dior', email: "Bombasto@walla.com"},
-  { id: 14, name: 'Celeritas' ,last_name: 'Dior', email: "Celeritas@walla.com"},
-  { id: 15, name: 'Magneta' ,last_name: 'Dior', email: "Magneta@walla.com"},
-  { id: 16, name: 'RubberMan' ,last_name: 'Dior', email: "RubberMan@walla.com"},
-  { id: 17, name: 'Dynama' ,last_name: 'Dior', email: "Dynama@walla.com"},
-  { id: 18, name: 'Dr IQ' ,last_name: 'Dior', email: "DrIQ@walla.com"},
-  { id: 19, name: 'Magma' ,last_name: 'Dior', email: "Magma@walla.com"},
-  { id: 20, name: 'Tornado' ,last_name: 'Dior', email: "Tornado@walla.com"}
-];
+
 
 /**
  * Generated class for the Home page.
@@ -25,9 +15,17 @@ const USERS: User[] = [
 @IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
+  templateUrl: 'home.html'
 })
 export class Home {
+
+  CLIENTS: Client[] = [
+    { id: 11, name: 'עידן', last_name: 'יניב', email: "Mr. Nice@walla.com", dateOfBirth: '03/11/1994'},
+    { id: 12, name: 'עמית' ,last_name: 'הררי', email: "Narco@walla.com",dateOfBirth: '03/11/1994'},
+    { id: 13, name: 'שני' ,last_name: 'רחמים', email: "Bombasto@walla.com",dateOfBirth: '03/11/1994'},
+    { id: 14, name: 'בר' ,last_name: 'רפאלי', email: "Celeritas@walla.com",dateOfBirth: '03/11/1994'},
+    { id: 15, name: 'קוקו' ,last_name: 'לוקה', email: "Magneta@walla.com",dateOfBirth: '03/11/1994'}
+  ];
 
   username = '';
   email = '';

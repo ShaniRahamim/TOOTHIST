@@ -14,23 +14,19 @@
 <ion-content class="home" padding>
   <body dir="rtl">
 
-  <table style="width:50%" align="center">
+  <table align="center">
     <tr>
-      <th>שם המטופל</th>
-      <th>גיל</th>
-      <th>כתובת</th>
+      <td><span style="font-weight:bold">שם</span></td>
+
+      <td><span style="font-weight:bold">שם משפחה</span></td>
+
+      <td><span style="font-weight:bold">תעודת זהות</span></td>
     </tr>
-    <tr>
-      <td> עידן יניב       <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15bde1c28dd570c8&attid=0.1&disp=inline&realattid=f_j2det4io0&safe=1&attbid=ANGjdJ_T2q3iA9TcNMKlB8SkosC0Hh0mLfl3iuWNU2pUiZ_L-cuvV0KPdgpME26K5hZJPGPKEhZeDZgNYKFHTYBUB88NoFQYZevd0wTyfZ-q68Y5z2ojbRoC-6rGObg&ats=1494080041207&rm=15bde1c28dd570c8&zw&sz=w3200-h1355" class="test"/>
-      </td>
-      <td>19</td>
-      <td>הארזים 17</td>
-    </tr>
-    <tr>
-      <td> לירון דנינו       <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15bde1c28dd570c8&attid=0.1&disp=inline&realattid=f_j2det4io0&safe=1&attbid=ANGjdJ_T2q3iA9TcNMKlB8SkosC0Hh0mLfl3iuWNU2pUiZ_L-cuvV0KPdgpME26K5hZJPGPKEhZeDZgNYKFHTYBUB88NoFQYZevd0wTyfZ-q68Y5z2ojbRoC-6rGObg&ats=1494080041207&rm=15bde1c28dd570c8&zw&sz=w3200-h1355" class="test"/>
-      </td>
-      <td>24</td>
-      <td>חיפה 17</td>
+    <tr *ngFor="let Client of CLIENTS; let i = index">
+      <td>{{Client.name}}</td>
+      <td>{{Client.last_name}}</td>
+      <td>{{Client.id}}</td>
+      <td><img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15bde1c28dd570c8&attid=0.1&disp=inline&realattid=f_j2det4io0&safe=1&attbid=ANGjdJ_T2q3iA9TcNMKlB8SkosC0Hh0mLfl3iuWNU2pUiZ_L-cuvV0KPdgpME26K5hZJPGPKEhZeDZgNYKFHTYBUB88NoFQYZevd0wTyfZ-q68Y5z2ojbRoC-6rGObg&ats=1494080041207&rm=15bde1c28dd570c8&zw&sz=w3200-h1355" class="test"/></td>
     </tr>
   </table>
   </body>
