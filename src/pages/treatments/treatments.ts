@@ -16,11 +16,15 @@ import { IonicPage } from 'ionic-angular';
 export class Treatments {
   private patient : Object;
 
+  public text: string;
   public recording : boolean;
+  public index : number;
 
   constructor() {
     this.patient = null;
     this.recording = false;
+    this.text = "";
+    this.index = 0;
   }
 
   ionViewDidLoad() {
@@ -39,6 +43,23 @@ export class Treatments {
 
   startTreatment(){
     this.recording = true;
+    this.text += "sfsfdf";
+    let that = this;
+
+    for(let index = 0; index< 100; index ++){
+      console.log("dsdf");
+      console.log(that);
+
+      setTimeout(function(){
+
+        that.index ++;
+        that.text += " sfsfdf ";
+      },1500);
+
+    }
+
+
+
   }
 
 }

@@ -1,3 +1,67 @@
-page-treatments {
+.page-treatments {
+  /*background: #2da4ad;
+  color: white;*/
+}
 
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes heartbit {
+  0% {
+    box-shadow: 0;
+    box-shadow: 0px 0px 0px 10px grey;
+  }
+ /* 60% {
+    box-shadow: 0px 0px 0px 10px grey;
+  }*/
+  50% {
+    box-shadow: 0px 0px 0px 20px white;
+  }
+
+  100%{
+  box-shadow: 0px 0px 0px 5px white;
+}
+}
+.recording{
+  height: 250px;
+  width: 250px;
+  opacity: 1;
+  border-radius: 142px;
+  animation-duration: 0.2s;
+  animation-name: bounceIn;
+}
+div#shani{
+  display: flex;
+  justify-content: center;
+  /* padding: 87px; */
+  margin: 36px;
+}
+
+.heartbit{
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: heartbit;
+}
+#sheker{
+  display: none;
+  position: static;
+  padding-top: 14px;
+  padding: 10px;
+  min-height:20px;
+  margin:-10px;
+  color: black;
+  z-index: 1000;
 }
