@@ -21,15 +21,20 @@
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
-  <div class="login-box">
-
+  <ion-row class="signup-col">
+    <button ion-button class="submit-btn" round type="submit" >הוספת טיפול חדש</button>
+  </ion-row>
+  <ion-row class="signup-col">
+    <button ion-button class="submit-btn" round color="light" type="button" >ראה טיפולים קודמים</button>
+  </ion-row>
+  <div class="login-box" align="center">
     <form (click)="editClient(selectedClient)" #clientForm="ngForm" dir="rtl">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            <ion-item>
+      <ion-row align="center">
+        <ion-col align="center">
+          <ion-list inset align="center">
+            <ion-item align="center">
 
-              <ion-input name="תעודת זהות" [(ngModel)]="selectedClient.id" [disabled] = true></ion-input>
+              <ion-input name="תעודת זהות" [(ngModel)]="selectedClient.id" [disabled] = true align="center"></ion-input>
             </ion-item>
             <ion-item>
               <ion-input  name="שם פרטי" [(ngModel)]="selectedClient.name" [disabled] = true></ion-input>
@@ -49,11 +54,11 @@
       </ion-row>
 
 
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!clientForm.form.valid">שמור לקוח</button>
-        </ion-col>
+
 
     </form>
+
+
   </div>
 
 </ion-content>
