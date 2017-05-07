@@ -45,4 +45,7 @@ export class Home {
     this.nav.push('AddClient');
   }
 
+  public editClient(client: Client){
+    this.nav.push('EditClient', client);
+  }
 }

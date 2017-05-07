@@ -27,8 +27,11 @@ export class ClientService {
     }
   }
 
-  public updateClient(client){
-
+  public updateClient(client:Client){
+    return Observable.create(observer => {
+      observer.next(true);
+      observer.complete();
+    });
   }
 
 }

@@ -7,12 +7,53 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>editClient</ion-title>
+    <ion-title>ערוך לקוח</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15b014ad55bbef01&attid=0.2&disp=inline&realattid=f_j0o30zls1&safe=1&attbid=ANGjdJ-vSaIYe2FlZAwTS3VSVSh-Bg83Tmzc2ZuP0CuAq5X0D9b3loRRdJ2orbtTSSC7b3ZsYh8opOXRE4Gpb64XzNeg9MLg6XVi9pbGaRtn-zYVygJiy21_5rHduEM&ats=1493887441956&rm=15b014ad55bbef01&zw&sz=w3200-h1477"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+
+    <form (click)="editClient(selectedClient)" #clientForm="ngForm" dir="rtl">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+
+              <ion-input name="תעודת זהות" [(ngModel)]="selectedClient.id" [disabled] = true></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="שם פרטי" [(ngModel)]="selectedClient.name" [disabled] = true></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="שם משפחה" [(ngModel)]="selectedClient.last_name" [disabled] = true></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="מייל" [(ngModel)]="selectedClient.email" [disabled] = true></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="שנת לידה" [(ngModel)]="selectedClient.dateOfBirth" [disabled] = true></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!clientForm.form.valid">שמור לקוח</button>
+        </ion-col>
+
+    </form>
+  </div>
 
 </ion-content>
