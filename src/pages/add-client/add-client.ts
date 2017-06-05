@@ -17,12 +17,16 @@ import {AuthService} from "../../providers/auth-service";
 export class AddClient {
 
   createSuccess = false;
-  clientCredentials = { email: '', name: '', id: '', last_name: '', dateOfBirth: '' };
+  doctorId: number;
+  clientCredentials = { email: '', name: '', id: '', last_name: '', dateOfBirth: '', myDoctorId: 0};
 
-  constructor(public navCtrl: NavController, private clie: ClientService,  private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, private auth: AuthService, private clie: ClientService,  private alertCtrl: AlertController) {
+    let info = this.auth.getUserInfo();
+    this.doctorId = info['id'];
   }
 
   public addNewClient() {
+    this.clientCredentials.myDoctorId = this.doctorId;
     this.clie.addNewClient(this.clientCredentials).subscribe(success => {
         if (success) {
           this.createSuccess = true;

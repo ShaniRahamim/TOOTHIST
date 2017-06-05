@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import {AuthService} from '../../providers/auth-service';
 import {User} from "../users/users";
 import {Client} from "../clients/clients";
+import {ClientService} from "../../providers/client-service";
 
 
 
@@ -17,22 +18,24 @@ import {Client} from "../clients/clients";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class Home {
+export class Home implements OnInit{
 
   CLIENTS: Client[] = [
-    { id: 11, name: 'עידן', last_name: 'יניב', email: "Mr. Nice@walla.com", dateOfBirth: '03/11/1994'},
-    { id: 12, name: 'עמית' ,last_name: 'הררי', email: "Narco@walla.com",dateOfBirth: '03/11/1994'},
-    { id: 13, name: 'שני' ,last_name: 'רחמים', email: "Bombasto@walla.com",dateOfBirth: '03/11/1994'},
-    { id: 14, name: 'בר' ,last_name: 'רפאלי', email: "Celeritas@walla.com",dateOfBirth: '03/11/1994'},
-    { id: 15, name: 'קוקו' ,last_name: 'לוקה', email: "Magneta@walla.com",dateOfBirth: '03/11/1994'}
   ];
 
   username = '';
   email = '';
-  constructor(private nav: NavController, private auth: AuthService) {
+  userId: number;
+  constructor(private nav: NavController, private auth: AuthService, private cli: ClientService) {
     let info = this.auth.getUserInfo();
     this.username = info['name'];
     this.email = info['email'];
+    this.userId = info['id'];
+  }
+
+  ngOnInit(){
+    console.log(this.userId);
+    this.CLIENTS = this.cli.getMyClients(this.userId);
   }
 
   public logout() {

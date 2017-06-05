@@ -17,7 +17,7 @@ import {Login} from "../login/login";
 })
 export class Register {
   createSuccess = false;
-  registerCredentials = { email: '', password: '', id: '', name: '', last_name: '' };
+  registerCredentials  = { email: '', password: '', id: '', name: '', last_name: '' };
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
 

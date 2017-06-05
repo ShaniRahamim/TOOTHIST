@@ -13,11 +13,13 @@ export class User {
   last_name: string;
   email: string;
   id: number;
+  password: number;
 
 
-  constructor(name: string, email: string, last_name: string, id: number) {
+  constructor(name: string, password: number, email: string, last_name: string, id: number) {
     this.name = name;
     this.email = email;
+    this.password = password;
     this.last_name = last_name;
     this.id = id;
   }
@@ -30,7 +32,6 @@ export class User {
 })
 
 export class Users {
-
 
   /*constructor(public navCtrl: NavController, public navParams: NavParams) {
   }*/
