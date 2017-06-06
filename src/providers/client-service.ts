@@ -55,4 +55,8 @@ export class ClientService extends Init{
     });
   }
 
+  public getUserInfo() : Client {
+    console.log(this.currentClient);
+    return this.currentClient;
+  }
 }

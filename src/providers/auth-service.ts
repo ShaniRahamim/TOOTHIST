@@ -57,7 +57,8 @@ export class AuthService extends Init{
     }
   }
 
-  public getUserInfo() : User {
+   public getUserInfo() : User {
+    console.log(this.currentUser.name);
     return this.currentUser;
   }
 

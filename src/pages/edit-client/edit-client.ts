@@ -17,9 +17,19 @@ import {ClientService} from "../../providers/client-service";
 export class EditClient {
 
   selectedClient: Client;
+  doctorID: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cli: ClientService) {
+  constructor(public nav: NavController, public navParams: NavParams, private cli: ClientService) {
+    console.log(this.navParams.data);
     this.selectedClient= this.navParams.data;
+  }
+
+  public addTreatment(){
+    this.nav.push('AddTreamentPage', this.selectedClient);
+  }
+
+  public showTreatments(){
+    this.nav.push('ClientTreatmentsPage', this.selectedClient);
   }
 
   public editClient(client){
@@ -32,5 +42,4 @@ export class EditClient {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditClient');
   }
-
 }

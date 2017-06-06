@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ClientTreatmentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>טיפולים</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15b014ad55bbef01&attid=0.2&disp=inline&realattid=f_j0o30zls1&safe=1&attbid=ANGjdJ-vSaIYe2FlZAwTS3VSVSh-Bg83Tmzc2ZuP0CuAq5X0D9b3loRRdJ2orbtTSSC7b3ZsYh8opOXRE4Gpb64XzNeg9MLg6XVi9pbGaRtn-zYVygJiy21_5rHduEM&ats=1493887441956&rm=15b014ad55bbef01&zw&sz=w3200-h1477"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <table align="center">
+    <tr>
+      <td><span style="font-weight:bold">סיבת הטיפול</span></td>
+    </tr>
+    <tr *ngFor="let Treatment of TREATMENTS; let i = index">
+      <button ion-button (click)="showTreatment(Treatment)"> הצג טיפול</button>
+    </tr>
+  </table>
+</ion-content>

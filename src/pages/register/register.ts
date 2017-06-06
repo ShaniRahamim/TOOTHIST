@@ -25,7 +25,7 @@ export class Register {
     this.auth.register(this.registerCredentials).subscribe(success => {
         if (success) {
           this.createSuccess = true;
-          this.showPopup("הפעולה הושלה", "המשתמש נוצר בהצלחה");
+          this.showPopup("הפעולה הושלמה", "המשתמש נוצר בהצלחה");
         } else {
           this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
         }

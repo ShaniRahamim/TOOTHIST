@@ -22,15 +22,39 @@
   </ion-row>
 
   <div class="login-box" align="center">
-    <form #clientForm="ngForm" dir="rtl">
+    <form #clientForm="ngForm" #registerForm="ngForm" dir="rtl">
       <ion-row align="center">
         <ion-col align="center">
           <ion-list inset align="center">
             <ion-item align="center">
-              <ion-input name="מספר טיפול" [(ngModel)]="currentTreatment.numberOfTreatment"  align="center"></ion-input>
+              <ion-input type="text"  placeholder="סיבת הטיפול" name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"  align="center" required></ion-input>
             </ion-item>
+            <p>
+              <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+                <ion-icon name="microphone"></ion-icon>
+                Start recording
+              </button>
+            </p>
+            <p>
+              <button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
+                <ion-icon name="mic-off"></ion-icon>
+                Stop recording
+              </button>
+            </p>
+            <p>
+              <button ion-button (click)="savePlayback()">
+                שמור הקלטה
+              </button>
+            </p>
           </ion-list>
 
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" (click)="addTreament()"  [disabled]="!registerForm.form.valid">שמור טיפול נוכחי</button>
         </ion-col>
       </ion-row>
     </form>

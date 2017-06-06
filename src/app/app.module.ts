@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {Treatments} from "../pages/treatments/treatments";
 import {ClientService} from "../providers/client-service";
+import {TreatmentService} from "../providers/treatment-service";
+import {AudioRecorder} from "../providers/AudioRecorder";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import {ClientService} from "../providers/client-service";
     ItemDetailsPage,
     ListPage,
     Users,
-    Treatments
+    Treatments,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +41,13 @@ import {ClientService} from "../providers/client-service";
   providers: [
     StatusBar,
     SplashScreen,
+    AudioRecorder,
     AuthService,
+    TreatmentService,
     Users,
-      Treatments,
+    Treatments,
     ClientService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
