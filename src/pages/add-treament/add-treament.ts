@@ -49,6 +49,7 @@ export class AddTreamentPage {
       });
   }
 
+
   showPopup(title, text) {
     let alert = this.alertCtrl.create({
       title: title,

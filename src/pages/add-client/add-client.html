@@ -44,7 +44,7 @@
             </ion-item>
 
             <ion-item>
-              <ion-input type="date" placeholder="תאריך לידה" name="dateOfBirth" [(ngModel)]="clientCredentials.dateOfBirth" required></ion-input>
+              <ion-input type="date" placeholder="תאריך לידה" min="1900" max="2014-12-31" name="dateOfBirth" [(ngModel)]="clientCredentials.dateOfBirth" required></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>

@@ -26,18 +26,37 @@ export class AddClient {
   }
 
   public addNewClient() {
-    this.clientCredentials.myDoctorId = this.doctorId;
-    this.clie.addNewClient(this.clientCredentials).subscribe(success => {
-        if (success) {
-          this.createSuccess = true;
-          this.showPopup("הפעולה הושלמה", "הלקוח נשמר בהצלחה");
-        } else {
-          this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
-        }
-      },
-      error => {
-        this.showPopup("שגיאה", error);
-      });
+    if(this.checkCredentials()) {
+      this.clientCredentials.myDoctorId = this.doctorId;
+      this.clie.addNewClient(this.clientCredentials).subscribe(success => {
+          if (success) {
+            this.createSuccess = true;
+            this.showPopup("הפעולה הושלמה", "הלקוח נשמר בהצלחה");
+          } else {
+            this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
+          }
+        },
+        error => {
+          this.showPopup("שגיאה", error);
+        });
+    }
+  }
+
+  private checkCredentials() {
+    if(this.clie.checkIDValidation(this.clientCredentials.id)){
+      this.showPopup("קלט לא תקין", "משתמש עם תעודת זהות זהה קיים במערכת");
+      return false;
+    }
+    if(!this.clie.checkEmailValidation(this.clientCredentials.email)){
+      this.showPopup("קלט לא תקין", "משתמש עם מייל זהה כבר קיים במערכת");
+      return false;
+    }
+    if (this.clientCredentials.id.length != 9){
+      this.showPopup("קלט לא תקין", "תעודת זהות חייבת להיות 9 ספרות");
+      return false;
+    }
+
+    return true;
   }
 
   showPopup(title, text) {

@@ -57,6 +57,24 @@ export class AuthService extends Init{
     }
   }
 
+  public checkIDValidation(userID){
+    var users = this.usersInThe.filter(user=> user.id == userID);
+    if(users.length > 0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public checkEmailValidation(email){
+    var users = this.usersInThe.filter(user=> user.email == email);
+    if(users.length > 0) {
+      return false;
+    }
+
+    return true;
+  }
+
    public getUserInfo() : User {
     console.log(this.currentUser.name);
     return this.currentUser;

@@ -48,6 +48,25 @@ export class ClientService extends Init{
     }
   }
 
+
+  public checkIDValidation(clientID){
+    var clients = this.clients.filter(client=> client.id == clientID);
+    if(clients.length > 0) {
+      return true;
+    }
+
+    return false;
+  }
+
+  public checkEmailValidation(email){
+    var clients = this.clients.filter(client=> client.email == email);
+    if(clients.length > 0) {
+      return false;
+    }
+
+    return true;
+  }
+
   public updateClient(client:Client){
     return Observable.create(observer => {
       observer.next(true);
