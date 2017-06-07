@@ -46,6 +46,18 @@
                 שמור הקלטה
               </button>
             </p>
+            <p>
+              <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
+                <ion-icon name="play"></ion-icon>
+                תשמיע טיפול
+              </button>
+            </p>
+            <p>
+              <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
+                <ion-icon name="square"></ion-icon>
+                עצור שמיעת טיפול
+              </button>
+            </p>
           </ion-list>
 
 
