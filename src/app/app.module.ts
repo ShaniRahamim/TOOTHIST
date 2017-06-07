@@ -15,6 +15,9 @@ import {Treatments} from "../pages/treatments/treatments";
 import {ClientService} from "../providers/client-service";
 import {TreatmentService} from "../providers/treatment-service";
 import {AudioRecorder} from "../providers/AudioRecorder";
+import {ClientsRepo} from "./clients/clients.repo";
+import {UsersRepo} from "./users/users.repo";
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import {AudioRecorder} from "../providers/AudioRecorder";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,6 +51,8 @@ import {AudioRecorder} from "../providers/AudioRecorder";
     Users,
     Treatments,
     ClientService,
+    ClientsRepo,
+    UsersRepo,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

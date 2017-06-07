@@ -21,8 +21,11 @@ export class Register {
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
 
-  public register() {
+  public register(event: Event) {
+    debugger;
+    event.preventDefault();
     this.auth.register(this.registerCredentials).subscribe(success => {
+      debugger;
         if (success) {
           this.createSuccess = true;
           this.showPopup("הפעולה הושלמה", "המשתמש נוצר בהצלחה");
@@ -31,6 +34,7 @@ export class Register {
         }
       },
       error => {
+        debugger;
         this.showPopup("שגיאה", error);
       });
   }
