@@ -26,18 +26,19 @@
       <ion-row align="center">
         <ion-col align="center">
           <ion-list inset align="center">
-            <ion-item align="center">sss
-              <ion-select  placeholder="מטופל" name="client" *ngIf="!currentClient"
-                           [(ngModel)]="treatmenttCredentials.reasonOfTreatment"
-                         align="center" required>
-                <ion-option  *ngFor="let iClient of clients" value="iClient.id">
+            <ion-item align="center">
+               <ion-select [(ngModel)]="currentClient"
+                          name="category">
+                <ion-option [value]="null">
+                  None
+                </ion-option>
+                <ion-option *ngFor="let iClient of clients" [value]="iClient">
                   {{iClient.name + " " + iClient.last_name}}
                 </ion-option>
               </ion-select>
             </ion-item>
-
             <ion-item align="center">
-              <ion-input type="text"  placeholder="סיבת הטיפול"
+              <ion-input type="text"  placeholder="סיבת הטיפול" multiple="false"
                          name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"
                          align="center" required></ion-input>
             </ion-item>

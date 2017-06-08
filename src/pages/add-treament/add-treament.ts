@@ -27,20 +27,28 @@ export class AddTreamentPage {
   createSuccess = false;
   media: MediaPlugin = null;
   currentClient: Client;
+  clientID: any;
+  clients : Array<Client>;
   AudioRecorderState = AudioRecorderState;
 
-  constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,  private alertCtrl: AlertController, public navParams: NavParams, private auth: AuthService, private clie: ClientService, private tre: TreatmentService) {
+  constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,
+              private alertCtrl: AlertController, public navParams: NavParams,
+              private auth: AuthService, private clie: ClientService,
+              private tre: TreatmentService) {
 
     this.currentClient = this.navParams.data;
-    console.log('The client id' +  this.currentClient.id);
+    this.clients = this.clie.getMyClients(this.auth.getUserInfo().id);
     if( this.currentClient){
       this.treatmenttCredentials.clientID = Number( this.currentClient.id);
       this.treatmenttCredentials.doctorID = Number( this.currentClient.myDoctorId);
     }
-    console.log(this.treatmenttCredentials.clientID);
   }
 
   public addTreament(){
+
+    this.treatmenttCredentials.clientID = Number( this.currentClient.id);
+    this.treatmenttCredentials.doctorID = Number( this.currentClient.myDoctorId);
+    console.log(this.treatmenttCredentials.clientID);
     this.tre.addTreatment(this.treatmenttCredentials).subscribe(success => {
         if (success) {
           this.createSuccess = true;
