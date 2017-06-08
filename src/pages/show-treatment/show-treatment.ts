@@ -24,6 +24,10 @@ export class ShowTreatmentPage{
     this.curretnTreatment = navParams.data;
   }
 
+  public editTreatmentAnamesis(){
+
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShowTreatmentPage');

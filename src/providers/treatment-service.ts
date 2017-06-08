@@ -49,4 +49,12 @@ export class TreatmentService extends Init{
     }
   }
 
+  public editTreatmentAnamesis(treatment){
+    var treatmentToEdit = this.treatmens.filter(currTreatment => (currTreatment.clientId == treatment.clientId && currTreatment.doctorId == treatment.doctorId &&
+                                            currTreatment.reasonOfTreatment == treatment.reasonOfTreatment)).pop();
+    treatmentToEdit.anamnesis = treatment.anamnesis;
+    localStorage.setItem('treatments', JSON.stringify(this.treatmens));
+
+  }
+
 }
