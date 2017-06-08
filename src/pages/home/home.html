@@ -1,5 +1,5 @@
-<!--<ion-header>
-  <ion-navbar color="dark">
+<ion-header>
+  <ion-navbar>
     <ion-title dir="rtl">
       ברוך הבא {{username}}
     </ion-title>
@@ -9,7 +9,7 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header>-->
+</ion-header>
 
 <ion-content class="home" padding>
   <body dir="rtl">
@@ -18,31 +18,12 @@
     <button ion-button class=" button main-start-treat"
              (click)="addTreatment() "
             outline >התחל טיפול חדש</button>
-    <!--align-self-baseline="flex-center"-->
   </div>
 
-
-  <table align="center">
-    <tr>
-      <td><span style="font-weight:bold">שם</span></td>
-
-      <td><span style="font-weight:bold">שם משפחה</span></td>
-
-      <td><span style="font-weight:bold">תעודת זהות</span></td>
-    </tr>
-    <tr *ngFor="let Client of CLIENTS; let i = index">
-      <td>{{Client.name}}</td>
-      <td>{{Client.last_name}}</td>
-      <td>{{Client.id}}</td>
-      <td>
-        <img src="../../assets/icon/editIcon.png" class="test" (click)="editClient(Client)"/>
-      </td>
-    </tr>
-  </table>
-
-
   </body>
+<!--
 
   <button ion-button class="button button-small"  align-self-baseline="flex-start" (click)="createClient() " outline >יצירת מטופל חדש</button>
+-->
 
 </ion-content>

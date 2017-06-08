@@ -7,19 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>הוסף טיפול חדש</ion-title>
+    <ion-title dir="rtl">הוסף טיפול חדש</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
   <ion-row class="logo-row">
-    <ion-col></ion-col>
-    <ion-col (click)="startTreatment()" width="67">
+    <ion-col (click)="startTreatment()" class="text-center">
       <img class="recording " [ngClass]="[recording?'heartbit':'', 'second']"
            src="http://backofficeapi.dev.hopon.co/logo.png"/>
     </ion-col>
-    <ion-col></ion-col>
   </ion-row>
 
   <div class="login-box" align="center">

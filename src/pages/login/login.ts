@@ -38,12 +38,8 @@ export class Login {
     }
 
     recordShani() {
-        console.log("sfsfsdf");
         let d = SpeechRecognition;
-        /*console.log(platform);*/
         this.platform.ready().then(() => {
-            console.log("sfsfsdf");
-            console.log(d);
             //this.recognition = new SpeechRecognition();
             this.recognition = new d();
             this.recognition.lang = 'en-US';
