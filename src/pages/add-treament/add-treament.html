@@ -27,16 +27,7 @@
         <ion-col align="center">
           <ion-list inset align="center">
             <ion-item align="center">
-              <!--<ion-select  name="client" *ngIf="!currentClient.id"
-                           (ngModelChange)="selectObjectById($event, 'someProperty')"
-                           [(ngModel)]="currentClient.id">
-                <ion-option  *ngFor="let iClient of clients"
-                             value="iClient.id">
-                  {{iClient.name + " " + iClient.last_name}}
-                </ion-option>
-              </ion-select>-->
-
-              <ion-select [(ngModel)]="currentClient"
+                          <ion-select [(ngModel)]="currentClient"
                           name="category">
                 <ion-option [value]="null">
                   None
@@ -55,33 +46,10 @@
                          name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"
                          align="center" required></ion-input>
             </ion-item>
-
-            <p>
-              <button (click)="startRecording()" class="buttton-start-recording"
-                      [disabled]="audioRecorder.state != AudioRecorderState.Ready">
-                <ion-icon name="microphone"></ion-icon>
-                Start recording
-              </button>
-            </p>
-            <p>
-              <button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
-                <ion-icon name="mic-off"></ion-icon>
-                Stop recording
-              </button>
-            </p>
-            <p>
-              <button ion-button (click)="savePlayback()">
-                שמור הקלטה
-              </button>
-            </p>
-
-
             <ion-item align="center">
               <textarea placeholder = "סיכום הטיפול" name="message" rows="10" cols="60" [(ngModel)]="treatmenttCredentials.anamnesis"> </textarea>
             </ion-item>
           </ion-list>
-
-
         </ion-col>
       </ion-row>
 
