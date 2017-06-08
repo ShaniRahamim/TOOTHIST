@@ -6,6 +6,8 @@ import {TreatmentService} from "../../providers/treatment-service";
 import {MediaPlugin} from "ionic-native";
 import {AudioRecorder} from "../../providers/AudioRecorder";
 import {AudioRecorderState} from "../../providers/AudioRecorder";
+import {ItemDetailsPage} from "../item-details/item-details";
+import {Client} from "../clients/clients";
 
 
 /**
@@ -24,14 +26,17 @@ export class AddTreamentPage {
   treatmenttCredentials = { clientID: 0, doctorID: 0, reasonOfTreatment: '', anamnesis: ''};
   createSuccess = false;
   media: MediaPlugin = null;
+  currentClient: Client;
   AudioRecorderState = AudioRecorderState;
 
   constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,  private alertCtrl: AlertController, public navParams: NavParams, private auth: AuthService, private clie: ClientService, private tre: TreatmentService) {
 
-    var client = this.navParams.data;
-    console.log('The client id' + client.id);
-    this.treatmenttCredentials.clientID = Number(client.id);
-    this.treatmenttCredentials.doctorID = Number(client.myDoctorId);
+    this.currentClient = this.navParams.data;
+    console.log('The client id' +  this.currentClient.id);
+    if( this.currentClient){
+      this.treatmenttCredentials.clientID = Number( this.currentClient.id);
+      this.treatmenttCredentials.doctorID = Number( this.currentClient.myDoctorId);
+    }
     console.log(this.treatmenttCredentials.clientID);
   }
 
@@ -59,7 +64,10 @@ export class AddTreamentPage {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              this.navCtrl.push('Home');
+             /* this.navCtrl.push('Home');*/
+              this.navCtrl.push(ItemDetailsPage, {
+                item: this.currentClient
+              });
 
             }
           }

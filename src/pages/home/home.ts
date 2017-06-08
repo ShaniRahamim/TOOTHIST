@@ -1,11 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import {Component, OnInit, NgModule} from '@angular/core';
+import {NavController, IonicPage, IonicPageModule} from 'ionic-angular';
 import {AuthService} from '../../providers/auth-service';
 import {User} from "../users/users";
 import {Client} from "../clients/clients";
 import {ClientService} from "../../providers/client-service";
-
-
 
 /**
  * Generated class for the Home page.

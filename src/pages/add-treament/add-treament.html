@@ -26,12 +26,25 @@
       <ion-row align="center">
         <ion-col align="center">
           <ion-list inset align="center">
+            <ion-item align="center">sss
+              <ion-select  placeholder="מטופל" name="client" *ngIf="!currentClient"
+                           [(ngModel)]="treatmenttCredentials.reasonOfTreatment"
+                         align="center" required>
+                <ion-option  *ngFor="let iClient of clients" value="iClient.id">
+                  {{iClient.name + " " + iClient.last_name}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+
             <ion-item align="center">
-              <ion-input type="text"  placeholder="סיבת הטיפול" name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"  align="center" required></ion-input>
+              <ion-input type="text"  placeholder="סיבת הטיפול"
+                         name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"
+                         align="center" required></ion-input>
             </ion-item>
 
             <p>
-              <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+              <button (click)="startRecording()" class="buttton-start-recording"
+                      [disabled]="audioRecorder.state != AudioRecorderState.Ready">
                 <ion-icon name="microphone"></ion-icon>
                 Start recording
               </button>

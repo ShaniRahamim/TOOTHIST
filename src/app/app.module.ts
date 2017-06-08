@@ -15,6 +15,8 @@ import {Treatments} from "../pages/treatments/treatments";
 import {ClientService} from "../providers/client-service";
 import {TreatmentService} from "../providers/treatment-service";
 import {AudioRecorder} from "../providers/AudioRecorder";
+import {Home} from "../pages/home/home";
+import {HomeModule} from "../pages/home/home.module";
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import {AudioRecorder} from "../providers/AudioRecorder";
     ListPage,
     Users,
     Treatments,
+
   ],
   imports: [
     BrowserModule,
+    HomeModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -36,7 +40,9 @@ import {AudioRecorder} from "../providers/AudioRecorder";
     ItemDetailsPage,
     ListPage,
     Users,
-    Treatments
+    Treatments,
+
+
   ],
   providers: [
     StatusBar,
@@ -47,6 +53,7 @@ import {AudioRecorder} from "../providers/AudioRecorder";
     Users,
     Treatments,
     ClientService,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
