@@ -17,6 +17,7 @@ export class AuthService extends Init{
     super();
     this.load();
     this.getAllTheUsers();
+    console.log(this.usersInThe);
   }
 
   public getAllTheUsers(){
