@@ -1,0 +1,75 @@
+<!--
+  Generated template for the AddTreamentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>הוסף טיפול חדש</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15b014ad55bbef01&attid=0.2&disp=inline&realattid=f_j0o30zls1&safe=1&attbid=ANGjdJ-vSaIYe2FlZAwTS3VSVSh-Bg83Tmzc2ZuP0CuAq5X0D9b3loRRdJ2orbtTSSC7b3ZsYh8opOXRE4Gpb64XzNeg9MLg6XVi9pbGaRtn-zYVygJiy21_5rHduEM&ats=1493887441956&rm=15b014ad55bbef01&zw&sz=w3200-h1477"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <div class="login-box" align="center">
+    <form #clientForm="ngForm" #registerForm="ngForm" dir="rtl">
+      <ion-row align="center">
+        <ion-col align="center">
+          <ion-list inset align="center">
+            <ion-item align="center">
+              <ion-input type="text"  placeholder="סיבת הטיפול" name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"  align="center" required></ion-input>
+            </ion-item>
+            <p>
+              <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+                <ion-icon name="microphone"></ion-icon>
+                Start recording
+              </button>
+            </p>
+            <p>
+              <button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
+                <ion-icon name="mic-off"></ion-icon>
+                Stop recording
+              </button>
+            </p>
+            <p>
+              <button ion-button (click)="savePlayback()">
+                שמור הקלטה
+              </button>
+            </p>
+            <p>
+              <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
+                <ion-icon name="play"></ion-icon>
+                תשמיע טיפול
+              </button>
+            </p>
+            <p>
+              <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
+                <ion-icon name="square"></ion-icon>
+                עצור שמיעת טיפול
+              </button>
+            </p>
+          </ion-list>
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" (click)="addTreament()"  [disabled]="!registerForm.form.valid">שמור טיפול נוכחי</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+</ion-content>

@@ -15,14 +15,16 @@ export class Client {
   email: string;
   id: number;
   dateOfBirth: DateFormatter;
+  myDoctorId: number;
 
 
-  constructor(name: string, email: string, last_name: string, id: number, dateOfBirth: DateFormatter) {
+  constructor(name: string, email: string, last_name: string, id: number, dateOfBirth: Date, myDoctorId: number) {
     this.name = name;
     this.email = email;
     this.last_name = last_name;
     this.id = id;
     this.dateOfBirth= dateOfBirth;
+    this.myDoctorId = myDoctorId;
   }
 }
 

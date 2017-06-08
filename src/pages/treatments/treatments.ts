@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 //import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular';
+import {Treatment} from "../treatment/treatment";
+import {TreatmentService} from "../../providers/treatment-service";
 
 /**
  * Generated class for the Treatments page.

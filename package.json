@@ -25,12 +25,17 @@
         "@ionic/storage": "2.0.1",
         "cordova-android": "^6.2.3",
         "cordova-plugin-compat": "^1.0.0",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-audio-recorder-api": "0.0.6",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
+        "cordova-plugin-file": "^4.0.0",
+        "cordova-plugin-media": "^3.0.1",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.1",
         "cordova-plugin-whitelist": "^1.3.1",
         "ionic-angular": "3.1.1",
+        "ionic-native": "^2.9.0",
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
         "org.apache.cordova.speech.speechrecognition": "0.1.2",
@@ -41,6 +46,8 @@
     },
     "devDependencies": {
         "@ionic/app-scripts": "1.3.6",
+        "@ionic/cli-plugin-cordova": "1.3.0",
+        "@ionic/cli-plugin-ionic-angular": "1.3.0",
         "typescript": "~2.2.1"
     },
     "cordovaPlugins": [
@@ -55,11 +62,13 @@
     "description": "githubIonic: An Ionic project",
     "cordova": {
         "plugins": {
+            "cordova-plugin-media": {},
             "cordova-plugin-console": {},
             "cordova-plugin-device": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
+            "cordova-plugin-audio-recorder-api": {}
             "ionic-plugin-keyboard": {},
             "phonegap-plugin-speech-recognition": {
                 "MICROPHONE_USAGE_DESCRIPTION": "your usage message"
@@ -69,7 +78,8 @@
             }
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }
