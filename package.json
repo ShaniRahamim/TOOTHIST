@@ -24,6 +24,7 @@
         "@ionic-native/status-bar": "3.4.2",
         "@ionic/storage": "2.0.1",
         "cordova-android": "^6.2.3",
+        "cordova-plugin-compat": "^1.0.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-splashscreen": "^4.0.3",
@@ -32,6 +33,8 @@
         "ionic-angular": "3.1.1",
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
+        "org.apache.cordova.speech.speechrecognition": "0.1.2",
+        "phonegap-plugin-speech-recognition": "git+https://github.com/macdonst/SpeechRecognitionPlugin.git",
         "rxjs": "5.1.1",
         "sw-toolbox": "3.4.0",
         "zone.js": "^0.8.5"
@@ -57,7 +60,13 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {}
+            "ionic-plugin-keyboard": {},
+            "phonegap-plugin-speech-recognition": {
+                "MICROPHONE_USAGE_DESCRIPTION": "your usage message"
+            },
+            "org.apache.cordova.speech.speechrecognition": {
+                "PACKAGE_NAME": "com.ionicframework.listaspesa928347"
+            }
         },
         "platforms": [
             "android"
