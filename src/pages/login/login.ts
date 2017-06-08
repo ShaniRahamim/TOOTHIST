@@ -28,7 +28,7 @@ export class Login {
     constructor(private nav: NavController, private auth: AuthService,
                 private alertCtrl: AlertController, private loadingCtrl: LoadingController,
                 public platform: Platform) {
-        this.shit = "shaniiii ! se;lks;lkfds";
+        this.shit = "";
 
         platform.ready().then(() => {
             console.log("Platform is ready");
