@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ClientService} from "../../providers/client-service";
 import {AuthService} from "../../providers/auth-service";
+import {ItemDetailsPage} from "../item-details/item-details";
 
 /**
  * Generated class for the AddClient page.
@@ -69,6 +70,9 @@ export class AddClient {
           handler: data => {
             if (this.createSuccess) {
               this.navCtrl.push('Home');
+              /*this.navCtrl.push(ItemDetailsPage, {
+                item: this.clientCredentials
+              });*/
 
             }
           }

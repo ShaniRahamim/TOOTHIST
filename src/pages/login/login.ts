@@ -74,6 +74,7 @@ export class Login {
 
         this.auth.login(this.registerCredentials).subscribe(allowed => {
                 if (allowed) {
+
                     this.nav.setRoot('Home');
                 } else {
                     this.showError("Access Denied");

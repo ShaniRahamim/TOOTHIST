@@ -31,6 +31,7 @@ export class AuthService extends Init{
         let acsses = false;
         // At this point make a request to your backend to make a real check!
         this.currentUser = this.getUser(credentials.email, credentials.password);
+        localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
         if(this.currentUser != null){
           acsses = true;
         }
@@ -76,7 +77,10 @@ export class AuthService extends Init{
   }
 
    public getUserInfo() : User {
-    console.log(this.currentUser.name);
+    if(!this.currentUser){
+      this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
+    console.log(this.currentUser);
     return this.currentUser;
   }
 
