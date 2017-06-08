@@ -9,36 +9,31 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content dir="rtl">
   <h3 text-center *ngIf="selectedItem">
     <ion-icon [name]="user"></ion-icon>
     {{selectedItem.name + " " +selectedItem.last_name}}
   </h3>
-
-
-
-  <div>
-    {{selectedItem.id}}
-    {{selectedItem.email}}
-    {{selectedItem.dateOfBirth}}
-  </div>
-
-  <button (click)="editClient(selectedItem)">
+  <button align-items-baseline="flex-end" class="submit-btn button" (click)="editClient(selectedItem)">
     ערוך מטופל
   </button>
-  <ion-row class="signup-col">
-    <button ion-button class="submit-btn" round type="submit" (click)="addTreatment() ">הוספת טיפול חדש</button>
-  </ion-row>
-  <ion-row class="signup-col">
-    <button ion-button class="submit-btn" round color="light" type="button" (click)="showTreatments()">ראה טיפולים קודמים</button>
-  </ion-row>
+  <ion-item>
+    <ion-label>תעודת זהות </ion-label>
+    <ion-label>{{selectedItem.id}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>תאריך לידה</ion-label>
+    <ion-label>{{selectedItem.dateOfBirth}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>אימייל</ion-label>
+    <ion-label>{{selectedItem.email}}</ion-label>
+  </ion-item>
 
-  <td><img src="https://mail.google.com/mail/u/0/?ui=2&ik=805eac236c&view=fimg&th=15bde1c28dd570c8&attid=0.1&disp=inline&realattid=f_j2det4io0&safe=1&attbid=ANGjdJ_T2q3iA9TcNMKlB8SkosC0Hh0mLfl3iuWNU2pUiZ_L-cuvV0KPdgpME26K5hZJPGPKEhZeDZgNYKFHTYBUB88NoFQYZevd0wTyfZ-q68Y5z2ojbRoC-6rGObg&ats=1494080041207&rm=15bde1c28dd570c8&zw&sz=w3200-h1355" class="test" (click)="editClient(Client)"/></td>
- <!-- <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </h4>-->
+
+  <ion-row class="signup-col text-center">
+    <button ion-button class="submit-btn" round type="submit" (click)="addTreatment() ">הוספת טיפול חדש</button>
+    <button ion-button class="submit-btn" round color="light" type="button"
+            (click)="showTreatments()">ראה טיפולים קודמים</button>
+  </ion-row>
 </ion-content>
