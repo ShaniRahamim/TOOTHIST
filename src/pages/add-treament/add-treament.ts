@@ -21,7 +21,7 @@ import {AudioRecorderState} from "../../providers/AudioRecorder";
 })
 export class AddTreamentPage {
 
-  treatmenttCredentials = { clientID: 0, doctorID: 0, reasonOfTreatment: ''};
+  treatmenttCredentials = { clientID: 0, doctorID: 0, reasonOfTreatment: '', anamnesis: ''};
   createSuccess = false;
   media: MediaPlugin = null;
   AudioRecorderState = AudioRecorderState;

@@ -24,14 +24,19 @@
 <div align="center">
   <form align-self-start="center">
     <h1>סיבת הטיפול</h1>
-    <ion-item>
+    <ion-item align="center">
 
-      <ion-input  name="סיבת הטיפול" [(ngModel)]="curretnTreatment.reasonOfTreatment" [disabled] = true></ion-input>
+    <ion-input  name="סיבת הטיפול" [(ngModel)]="curretnTreatment.reasonOfTreatment" [disabled] = true></ion-input>
+  </ion-item>
+    <h1>סיכום הטיפול</h1>
+    <ion-item dir="rtl">
+
+      <textarea rows="10" cols="60" name="סיכום הטיפול" [(ngModel)]="curretnTreatment.anamnesis" [disabled] = true></textarea>
     </ion-item>
 
-    <p>
+    <p dir="rtl">
       <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
-        <ion-icon name="play"></ion-icon>
+        <ion-icon name="play" align-self-start="flex-start"></ion-icon>
         תשמיע טיפול
       </button>
     </p>

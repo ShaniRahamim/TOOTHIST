@@ -29,6 +29,7 @@
             <ion-item align="center">
               <ion-input type="text"  placeholder="סיבת הטיפול" name="reasonOfTreatment" [(ngModel)]="treatmenttCredentials.reasonOfTreatment"  align="center" required></ion-input>
             </ion-item>
+
             <p>
               <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
                 <ion-icon name="microphone"></ion-icon>
@@ -46,18 +47,11 @@
                 שמור הקלטה
               </button>
             </p>
-            <p>
-              <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
-                <ion-icon name="play"></ion-icon>
-                תשמיע טיפול
-              </button>
-            </p>
-            <p>
-              <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
-                <ion-icon name="square"></ion-icon>
-                עצור שמיעת טיפול
-              </button>
-            </p>
+
+
+            <ion-item align="center">
+              <textarea placeholder = "סיכום הטיפול" name="message" rows="10" cols="60" [(ngModel)]="treatmenttCredentials.anamnesis"> </textarea>
+            </ion-item>
           </ion-list>
 
 
