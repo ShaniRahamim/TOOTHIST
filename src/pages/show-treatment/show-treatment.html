@@ -17,7 +17,7 @@
   <ion-row class="logo-row">
     <ion-col></ion-col>
     <ion-col width-67>
-     <!-- <img src="http://backofficeapi.dev.hopon.co/logo.png"/>    </ion-col>-->
+      <img src="../../assets/images/logo.png"/>    </ion-col>
     <ion-col></ion-col>
   </ion-row>
 <div align="center">
@@ -30,9 +30,8 @@
     <h1>סיכום הטיפול</h1>
     <ion-item dir="rtl">
 
-      <textarea rows="10" cols="60" > name="סיכום הטיפול" [(ngModel)]="curretnTreatment.anamnesis" [disabled] = true></textarea>
+      <textarea rows="10" cols="60"  name="סיכום הטיפול" [(ngModel)]="curretnTreatment.anamnesis" [disabled] = true></textarea>
     </ion-item>
-
     <p dir="rtl">
       <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
         <ion-icon name="play" align-self-start="flex-start"></ion-icon>

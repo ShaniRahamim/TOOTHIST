@@ -10,26 +10,38 @@
 </ion-header>
 
 <ion-content dir="rtl">
+
+  <ion-row class="logo-row" align="center">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="../../assets/images/logo.png" height="200" width="200"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
   <h3 text-center *ngIf="selectedItem">
     <ion-icon [name]="user"></ion-icon>
     {{selectedItem.name + " " +selectedItem.last_name}}
   </h3>
-  <button align-items-baseline="flex-end" class="submit-btn button" (click)="editClient(selectedItem)">
+  <!--button align-items-baseline="flex-end" class="submit-btn button" (click)="editClient(selectedItem)">
     ערוך מטופל
-  </button>
-  <ion-item>
-    <ion-label>תעודת זהות </ion-label>
-    <ion-label>{{selectedItem.id}}</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>תאריך לידה</ion-label>
-    <ion-label>{{selectedItem.dateOfBirth}}</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>אימייל</ion-label>
-    <ion-label>{{selectedItem.email}}</ion-label>
-  </ion-item>
-
+  </button-->
+  <ion-label>תעודת זהות</ion-label>
+  <ion-item align="center">
+      <ion-input name="תעודת זהות" [(ngModel)]="selectedItem.id" [disabled] = true align="center"></ion-input>
+    </ion-item>
+  <ion-label>שם פרטי</ion-label>
+    <ion-item>
+      <ion-input  name="שם פרטי" [(ngModel)]="selectedItem.name" [disabled] = true></ion-input>
+    </ion-item>
+  <ion-label>שם משפחה</ion-label>
+    <ion-item>
+      <ion-input  name="שם משפחה" [(ngModel)]="selectedItem.last_name" [disabled] = true></ion-input>
+    </ion-item>
+  <ion-label>מייל</ion-label>
+    <ion-item>
+      <ion-input  name="מייל" [(ngModel)]="selectedItem.email" [disabled] = true></ion-input>
+    </ion-item>
 
   <ion-row class="signup-col text-center">
     <button ion-button class="submit-btn" round type="submit" (click)="addTreatment() ">הוספת טיפול חדש</button>
