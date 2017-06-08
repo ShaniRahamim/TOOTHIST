@@ -29,6 +29,7 @@ export class AddTreamentPage {
   currentClient: Client;
   clientID: any;
   clients : Array<Client>;
+  recording: boolean;
   AudioRecorderState = AudioRecorderState;
 
   constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,
@@ -107,44 +108,8 @@ export class AddTreamentPage {
 
   }
 
-  startRecording(){
-    try {
-      this.audioRecorder.startRecording();
-    }
-    catch (e) {
-      this.showAlert('Could not start recording.');
-    }
-  }
-
-  stopRecording() {
-    try {
-      this.audioRecorder.stopRecording();
-    }
-    catch (e) {
-      this.showAlert('Could not stop recording.');
-    }
-  }
-
-  startPlayback() {
-    try {
-      this.audioRecorder.startPlayback();
-    }
-    catch (e) {
-      this.showAlert('Could not play recording.');
-    }
-  }
-
-  stopPlayback() {
-    try {
-      this.audioRecorder.stopPlayback();
-    }
-    catch (e) {
-      this.showAlert('Could not stop playing recording.');
-    }
-  }
-
-  savePlayback(){
-
+  startTreatment(){
+    this.recording = true;
   }
 
 }

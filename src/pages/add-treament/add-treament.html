@@ -15,8 +15,9 @@
 <ion-content padding>
   <ion-row class="logo-row">
     <ion-col></ion-col>
-    <ion-col width-67>
-      <img src="../../assets/images/logo.png"/>
+    <ion-col (click)="startTreatment()" width="67">
+      <img class="recording " [ngClass]="[recording?'heartbit':'', 'second']"
+           src="http://backofficeapi.dev.hopon.co/logo.png"/>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
