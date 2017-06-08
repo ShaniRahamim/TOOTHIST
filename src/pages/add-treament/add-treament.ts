@@ -37,6 +37,9 @@ export class AddTreamentPage {
               private tre: TreatmentService) {
 
     this.currentClient = this.navParams.data;
+    if(!this.navParams.data.id){
+      this.currentClient = null;
+    }
     this.clients = this.clie.getMyClients(this.auth.getUserInfo().id);
     if( this.currentClient){
       this.treatmenttCredentials.clientID = Number( this.currentClient.id);

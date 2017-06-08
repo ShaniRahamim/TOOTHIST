@@ -27,7 +27,16 @@
         <ion-col align="center">
           <ion-list inset align="center">
             <ion-item align="center">
-               <ion-select [(ngModel)]="currentClient"
+              <!--<ion-select  name="client" *ngIf="!currentClient.id"
+                           (ngModelChange)="selectObjectById($event, 'someProperty')"
+                           [(ngModel)]="currentClient.id">
+                <ion-option  *ngFor="let iClient of clients"
+                             value="iClient.id">
+                  {{iClient.name + " " + iClient.last_name}}
+                </ion-option>
+              </ion-select>-->
+
+              <ion-select [(ngModel)]="currentClient"
                           name="category">
                 <ion-option [value]="null">
                   None
@@ -36,6 +45,10 @@
                   {{iClient.name + " " + iClient.last_name}}
                 </ion-option>
               </ion-select>
+
+              <ion-label  *ngIf="currentClient">
+                {{currentClient.name + " " + currentClient.last_name}}
+              </ion-label>
             </ion-item>
             <ion-item align="center">
               <ion-input type="text"  placeholder="סיבת הטיפול" multiple="false"
