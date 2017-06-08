@@ -9,6 +9,7 @@ import { Treatments } from '../pages/treatments/treatments';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {Home} from "../pages/home/home";
 
 
 @Component({
@@ -33,10 +34,11 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'Clients', component: ListPage },
-      { title: 'users', component: Users },
-      { title: 'treatments', component: Treatments }
+      { title: 'בית', component: Home },
+      /*{ title: 'Hello Ionic', component: HelloIonicPage },*/
+      { title: 'מטופלים', component: ListPage },
+      /*{ title: 'users', component: Users },
+      { title: 'treatments', component: Treatments }*/
     ];
   }
 
