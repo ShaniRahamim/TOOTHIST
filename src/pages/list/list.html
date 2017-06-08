@@ -3,18 +3,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>כל המטופלים</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
+      <!--<ion-icon name="{{item.icon}}" item-left></ion-icon>
       {{item.title}}
       <div class="item-note" item-right>
         {{item.note}}
-      </div>
+      </div>-->
+      {{item.name + " " + item.last_name}}
     </button>
   </ion-list>
+  <button ion-button class="button button-small"  align-self-baseline="flex-start" (click)="createClient() " outline >יצירת מטופל חדש</button>
 </ion-content>
