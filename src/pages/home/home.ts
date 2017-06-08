@@ -51,4 +51,9 @@ export class Home implements OnInit{
   public editClient(client: Client){
     this.nav.push('EditClient', client);
   }
+
+
+  public addTreatment(){
+    this.nav.push('AddTreamentPage');//, this.selectedClient);
+  }
 }
