@@ -116,39 +116,40 @@ export class AddTreamentPage {
     }
 
     startTreatment() {
-        var d;
+        //var d;
         try{
-            d = SpeechRecognition;
+            let d = SpeechRecognition;
+            this.platform.ready().then(() => {
+                this.recording = true;
+                if(d) {
+                    this.recognition = new d();
+                    this.recognition.lang = 'en-US';
+                    this.recognition.onnomatch = (event => {
+                        console.log('No match found.');
+                    });
+                    this.recognition.onerror = (event => {
+                        console.log('Error happens.');
+                    });
+                    this.recognition.onresult = (event => {
+                        console.log(event);
+
+                        if (event.results.length > 0) {
+                            console.log('Output STT: ', event.results[0][0].transcript);
+                            this.treatmenttCredentials.anamnesis += event.results[0][0].transcript;
+                        }
+                    });
+                    this.recognition.onstop = (event => {
+                        this.recording = false;
+                    });
+                    this.recognition.start();
+                }
+            });
         }
         catch (exception){
-
+            this.recording = true;
         }
 
-        this.platform.ready().then(() => {
-            this.recording = true;
-            if(d) {
-                this.recognition = new d();
-                this.recognition.lang = 'en-US';
-                this.recognition.onnomatch = (event => {
-                    console.log('No match found.');
-                });
-                this.recognition.onerror = (event => {
-                    console.log('Error happens.');
-                });
-                this.recognition.onresult = (event => {
-                    console.log(event);
 
-                    if (event.results.length > 0) {
-                        console.log('Output STT: ', event.results[0][0].transcript);
-                        this.treatmenttCredentials.anamnesis += event.results[0][0].transcript;
-                    }
-                });
-                this.recognition.onstop = (event => {
-                    this.recording = false;
-                });
-                this.recognition.start();
-            }
-        });
     }
 
 }
