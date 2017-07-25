@@ -66,19 +66,18 @@ export class Login {
     }
 
     public login() {
-        this.showLoading();
+    //e.preventDefault();
+      this.showLoading();
 
-        this.auth.login(this.registerCredentials).subscribe(allowed => {
-                if (allowed) {
+      //this.auth.getUser()
 
-                    this.nav.setRoot('Home');
-                } else {
-                    this.showError("Access Denied");
-                }
-            },
-            error => {
-                this.showError(error);
-            });
+      this.auth.login(this.registerCredentials)
+        .then(() => {
+          this.nav.setRoot('Home');
+        })
+        .catch((error) => {
+          this.showError("Access Denied");
+        })
     }
 
     showLoading() {

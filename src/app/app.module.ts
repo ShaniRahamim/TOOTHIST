@@ -17,6 +17,7 @@ import {TreatmentService} from "../providers/treatment-service";
 import {AudioRecorder} from "../providers/AudioRecorder";
 import {Home} from "../pages/home/home";
 import {HomeModule} from "../pages/home/home.module";
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {HomeModule} from "../pages/home/home.module";
     BrowserModule,
     HomeModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
