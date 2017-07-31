@@ -13,7 +13,7 @@ let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/user
 @Injectable()
 export class AuthService extends Init{
   usersInThe: User[] = [];
-  currentUser: User;
+  static currentUser: User;
   currentClients: Client;
   obs: any;
 
@@ -47,7 +47,7 @@ export class AuthService extends Init{
       if (credentials.email === null || credentials.password === null) {
         reject("Please insert credentials");
       } else {
-        this.setUser(credentials.email, credentials.password).map(res => res.json()).subscribe(data => {
+        this.getUser(credentials.email, credentials.password).map(res => res.json()).subscribe(data => {
           if (data.length > 0) {
             let u = data[0];
             let user = new User(u.name, u.password, u.email, u.last_name, u.id);
@@ -55,70 +55,24 @@ export class AuthService extends Init{
             console.log(JSON.stringify(data));
             //console.log(JSON.stringify(user));
             if (user.password == credentials.password) {
-              this.currentUser = user;
+              AuthService.currentUser = user;
+
             }
           }
 
-          console.log(this.currentUser);
-          if (this.currentUser && this.currentUser.password == credentials.password) {
-            localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
-            resolve(this.currentUser);
+          console.log(AuthService.currentUser);
+          if (AuthService.currentUser && AuthService.currentUser.password == credentials.password) {
+            localStorage.setItem("currentUser", JSON.stringify(AuthService.currentUser));
+            resolve(AuthService.currentUser);
           }
           else {
-            // this.currentUser = null;
+            // AuthService.currentUser = null;
             reject("wrong password");
           }
         });
-
-
-        //}).catch(function () {
-        //  this.currentUser = null;
-        //  return false;
-        // })
       }
     }.bind(this));
-      /*this.currentUser = null;
-      let headers = new Headers();
-      headers.append('Content-Type','application/json');
-      return this.http.get(apiUrl + '?email=' + credentials.email, {headers: headers})
-        .map(res => res.json()).subscribe(data => {*/
-        /*    let b;
-         let a = new Promise((resolve, reject) => {
-         */
-
-
-
-        //console.log(b);
-        //console.log(a);
-
-        /*if (data.length > 0) {
-          let u = data[0];
-          let user = new User(u.name, u.password, u.email, u.last_name, u.id);
-          console.log(user);
-          console.log(JSON.stringify(data));
-          //console.log(JSON.stringify(user));
-          if (user.password == credentials.password) {
-            this.currentUser = user;
-          }
-        }*/
-
-        //this.obs = Observable.create(observer => {
-
-          // At this point make a request to your backend to make a real check!
-
-          //this.currentUser = this.getUser(credentials.email, credentials.password);
-     //     console.log(this.currentUser);
-      //    localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
-       //   if (this.currentUser != null) {
-            //acsses = true;
-      //      return true;
-       //   }
-          //observer.next(acsses);
-          //observer.complete();
-       //   return false;
-       // }
-
-    }     //return Observable.throw("Please insert credentials2");
+  }
 
 
   public register(credentials) {
@@ -126,15 +80,15 @@ export class AuthService extends Init{
       return Observable.throw("Please insert credentials");
     } else {
 
-      this.currentUser = new User(credentials.name, credentials.password, credentials.email, credentials.last_name, credentials.id);
-      this.usersInThe.push(this.currentUser);
+      AuthService.currentUser = new User(credentials.name, credentials.password, credentials.email, credentials.last_name, credentials.id);
+      this.usersInThe.push(AuthService.currentUser);
       //localStorage.setItem('users', JSON.stringify(this.usersInThe));
 
       //var loginServiceUrl = 'http://url.com.br'; //It is not the real one
       var res = this.http.post(apiUrl + 'create/',
-        {name: this.currentUser.name, last_name: this.currentUser.last_name, email:this.currentUser.email,
-          password: this.currentUser.password, id: this.currentUser.id});
-      this.currentUser = null;
+        {name: AuthService.currentUser.name, last_name: AuthService.currentUser.last_name, email:AuthService.currentUser.email,
+          password: AuthService.currentUser.password, id: AuthService.currentUser.id});
+      AuthService.currentUser = null;
       // At this point store the credentials to your backend!
       //return Observable.create(observer => {
        // observer.next(true);
@@ -163,24 +117,24 @@ export class AuthService extends Init{
   }
 
    public getUserInfo() : User {
-    if(!this.currentUser){
-      this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if(!AuthService.currentUser){
+      AuthService.currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
-    console.log(this.currentUser);
-    return this.currentUser;
+    console.log(AuthService.currentUser);
+    return AuthService.currentUser;
   }
 
   public logout() {
     return Observable.create(observer => {
-      this.currentUser = null;
+      AuthService.currentUser = null;
       observer.next(true);
       observer.complete();
     });
   }
 
-  public getUser(email):Promise<User>{
+  public getUser2(email):Promise<User>{
     //return this.usersInThe.filter(user => (user.email == email && user.password == password)).pop();
-  //this.currentUser = null;
+  //AuthService.currentUser = null;
      return new Promise(function(resolve,reject) {
     this.getUserHeader(email).subscribe(data => {
       console.log(data.length);
@@ -190,11 +144,11 @@ export class AuthService extends Init{
       console.log(user);
       console.log(JSON.stringify(data));
       resolve(user);
-      this.currentUser = user;
+      AuthService.currentUser = user;
       //console.log(JSON.stringify(user));
       /*if (user.password == password)
        {
-       this.currentUser =  user;
+       AuthService.currentUser =  user;
        }*/
     }
     else {
@@ -214,11 +168,11 @@ public getUserHeader(email)
   //console.log(headers);
 }
 
-  public setUser(email, password){
+  public getUser(email, password){
     //return this.usersInThe.filter(user => (user.email == email && user.password == password)).pop();
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    this.currentUser = null;
+    AuthService.currentUser = null;
     return this.http.get(apiUrl + '?email=' + email, {headers: headers})
   }
 
