@@ -78,7 +78,7 @@ export class ClientService extends Init{
       //localStorage.setItem('clients', JSON.stringify(this.clients));
       var res = this.http.post(apiUrl + 'create/',
       {name: this.currentClient.name, last_name: this.currentClient.last_name, email:this.currentClient.email,
-         myDoctorId:'203571336' , id: this.currentClient.id, dataOfBirth: this.currentClient.dateOfBirth});
+          id: this.currentClient.id, dataOfBirth: this.currentClient.dateOfBirth, myDoctorId:AuthService.currentUser.id });
       /*return Observable.create(observer => {
         observer.next(true);
         observer.complete();
