@@ -30,7 +30,8 @@ export class AddTreamentPage {
     media: MediaPlugin = null;
     currentClient: Client;
     clientID: any;
-    clients: Array<Client>;
+    //clients: Array<Client>;
+    clients: any;
     recording: boolean;
     recognition: any;
     AudioRecorderState = AudioRecorderState;
@@ -44,7 +45,11 @@ export class AddTreamentPage {
         if (!this.navParams.data.id) {
             this.currentClient = null;
         }
-        this.clients = this.clie.getMyClients(this.auth.getUserInfo().id);
+
+        this.clie.getClients(this.auth.getUserInfo().id).then(data => {
+          this.clients = data;
+        }).catch()
+
         if (this.currentClient) {
             this.treatmenttCredentials.clientID = Number(this.currentClient.id);
             this.treatmenttCredentials.doctorID = Number(this.currentClient.myDoctorId);

@@ -28,9 +28,6 @@
             <ion-item align="center">
                           <ion-select [(ngModel)]="currentClient"
                           name="category">
-                <ion-option [value]="null">
-                  None
-                </ion-option>
                 <ion-option *ngFor="let iClient of clients" [value]="iClient">
                   {{iClient.name + " " + iClient.last_name}}
                 </ion-option>

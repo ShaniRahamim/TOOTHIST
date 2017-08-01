@@ -17,7 +17,8 @@ import {TreatmentService} from "../../providers/treatment-service";
 })
 export class ClientTreatmentsPage implements OnInit{
 
-  TREATMENTS: Treatment[] = [];
+  //TREATMENTS: Treatment[] = [];
+  TREATMENTS: any;
   doctorID: number;
   clientID: number;
 
@@ -28,7 +29,12 @@ export class ClientTreatmentsPage implements OnInit{
   }
 
   ngOnInit(){
-    this.TREATMENTS = this.tri.getAllTreaemnts(this.clientID, this.doctorID);
+    console.log('Getting treatments');
+    //this.TREATMENTS = this.tri.getAllTreaemnts(this.clientID, this.doctorID);
+    this.tri.getAllTreaemnts(this.clientID, this.doctorID).then(data => {
+      this.TREATMENTS = data;
+    }).catch();
+    console.log(this.TREATMENTS);
   }
 
   showTreatment(treatment: Treatment){
