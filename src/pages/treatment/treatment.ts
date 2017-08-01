@@ -9,12 +9,20 @@ export class Treatment{
   anamnesis: string;
   reasonOfTreatment: string;
 
-  constructor(ClientID: number, DoctorID: number, reasonOfTreatment: string){
+  constructor(ClientID: number, DoctorID: number,reasonOfTreatment: string){
 
     this.clientId = ClientID;
     this.doctorId = DoctorID;
     this.reasonOfTreatment = reasonOfTreatment;
   }
+
+ /* constructor(ClientID: number, DoctorID: number,anamnesis: string, reasonOfTreatment: string){
+
+    this.clientId = ClientID;
+    this.doctorId = DoctorID;
+    this.anamnesis = anamnesis;
+    this.reasonOfTreatment = reasonOfTreatment;
+  }*/
 }
 /**
  * Generated class for the TreatmentPage page.

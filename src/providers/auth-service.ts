@@ -117,10 +117,11 @@ export class AuthService extends Init{
   }
 
    public getUserInfo() : User {
-    if(!AuthService.currentUser){
+    /*if(!AuthService.currentUser){
       AuthService.currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
     console.log(AuthService.currentUser);
+    return AuthService.currentUser;*/
     return AuthService.currentUser;
   }
 
