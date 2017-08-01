@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import {AlertController, NavController, NavParams} from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 import {Client} from "../clients/clients";
@@ -17,10 +17,11 @@ export class ListPage {
   //items : Array<Client>;
   //items: Client[] = new Array;
   items: any;
+  createSuccess = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public clientSrv: ClientService, private auth: AuthService) {
+              public clientSrv: ClientService, private auth: AuthService, private alertCtrl: AlertController) {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
@@ -56,7 +57,43 @@ export class ListPage {
     });
   }
 
+  public deleteClient(item: Client){
+
+    this.clientSrv.deleteClient(item).subscribe(success => {
+        if (success) {
+          this.createSuccess = true;
+          this.showPopup("הפעולה הושלמה", "הלקוח נמחק בהצלחה");
+        } else {
+          this.showPopup("שגיאה", "ישנה בעיה במחיקת משתמש זה");
+        }
+      },
+      error => {
+      this.showPopup("שגיאה", error);
+    });
+  }
+
   public createClient() {
     this.navCtrl.push('AddClient');
+  }
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            if (this.createSuccess) {
+              /*this.navCtrl.push(ItemDetailsPage, {
+               item: this.clientCredentials
+               });*/
+
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

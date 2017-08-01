@@ -67,8 +67,8 @@ export class ClientService extends Init{
       return this.clients;
   }
 
-  public addNewClient(credentials) {
-    if (credentials.id === null || credentials.name === null || credentials.last_name == null ||
+    public addNewClient(credentials) {
+      if (credentials.id === null || credentials.name === null || credentials.last_name == null ||
         credentials.dateOfBirth == null || credentials.email == null ) {
       return Observable.throw("Please insert credentials");
     } else {
@@ -116,5 +116,12 @@ export class ClientService extends Init{
   public getUserInfo() : Client {
     console.log(this.currentClient);
     return this.currentClient;
+  }
+
+  public deleteClient(item: Client){
+    console.log(item.id);
+
+    var res = this.http.post(apiUrl + 'destroy/',{id:item.id});
+    return res;
   }
 }
