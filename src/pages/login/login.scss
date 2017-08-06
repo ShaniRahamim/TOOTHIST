@@ -4,14 +4,21 @@ page-login {
     background: #FFFFFF;
 
     .logo-row {
-      padding-top: 50px;
+      padding-top: 40px;
       padding-bottom: 20px;
+
     }
 
     .login-box {
-      background: #4FCFE2;
-      padding: 20px 20px 0px 20px;
-      margin-top: 30px;
+
+      position: relative;
+      width: 500px;
+      margin: 50px auto;
+      padding: 10px 10px 10px;
+      text-align: center;
+      background: #87CEEB;
+      border: 1px solid #F5F5F5	;
+      border-radius: 20px;
     }
 
     ion-row {

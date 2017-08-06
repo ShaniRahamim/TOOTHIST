@@ -63,6 +63,7 @@ export class ListPage {
         if (success) {
           this.createSuccess = true;
           this.showPopup("הפעולה הושלמה", "הלקוח נמחק בהצלחה");
+
         } else {
           this.showPopup("שגיאה", "ישנה בעיה במחיקת משתמש זה");
         }
@@ -85,10 +86,6 @@ export class ListPage {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              /*this.navCtrl.push(ItemDetailsPage, {
-               item: this.clientCredentials
-               });*/
-
             }
           }
         }

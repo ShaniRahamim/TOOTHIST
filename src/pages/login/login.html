@@ -1,9 +1,9 @@
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <ion-content class="login-content" padding>
   <ion-row class="logo-row">
     <ion-col></ion-col>
-    <ion-col width-67>
-      <img src="http://backofficeapi.dev.hopon.co/logo.png"/>    </ion-col>
+    <ion-col>
+      <img src="../../assets/images/logo_title.png"/>    </ion-col>
     <ion-col></ion-col>
   </ion-row>
   <div class="login-box">
@@ -13,11 +13,11 @@
           <ion-list inset>
 
             <ion-item>
-              <ion-input type="text" placeholder="איימל" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+              <ion-input type="email" placeholder="איימל" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="password" placeholder="סיסמא" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+              <ion-input type="password" placeholder="סיסמא"  name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
             </ion-item>
 
           </ion-list>

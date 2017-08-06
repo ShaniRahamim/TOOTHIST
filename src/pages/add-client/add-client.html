@@ -37,23 +37,23 @@
         <ion-col>
           <ion-list inset>
             <ion-item>
-              <ion-input type="number" placeholder="תעודת זהות" name="id" [(ngModel)]="clientCredentials.id" required></ion-input>
+              <ion-input type="number" placeholder="תעודת זהות"  name="id" [(ngModel)]="clientCredentials.id" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="text" placeholder="שם פרטי" name="name" [(ngModel)]="clientCredentials.name" required></ion-input>
+              <ion-input type="text" placeholder="שם פרטי" pattern="^[א-ת]*$"  name="name" [(ngModel)]="clientCredentials.name" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="text" placeholder="שם משפחה" name="last_name" [(ngModel)]="clientCredentials.last_name" required></ion-input>
+              <ion-input type="text" placeholder="שם משפחה" pattern="^[א-ת]*$"  name="last_name" [(ngModel)]="clientCredentials.last_name" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="email" placeholder="איימל" name="email" [(ngModel)]="clientCredentials.email" required></ion-input>
+              <ion-input type="email" placeholder="איימל" name="email" pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" [(ngModel)]="clientCredentials.email" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="date" placeholder="תאריך לידה" min="1900" max="2014-12-31" name="dateOfBirth" [(ngModel)]="clientCredentials.dateOfBirth" required></ion-input>
+              <ion-input id = "date" type="date" placeholder="תאריך לידה" min="1930-01-01" max="2015-12-31" name="dateOfBirth" [(ngModel)]="clientCredentials.dateOfBirth" required></ion-input>
             </ion-item>
 
             <!--<ion-select >
