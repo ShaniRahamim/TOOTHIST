@@ -1,8 +1,25 @@
 page-edit-client {
   form {
     text-align: right;
-    height: 200px;
-    width: 50%;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    padding: 20px 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .login-box {
+
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    padding: 20px 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+
   }
 
   submit-btn {
@@ -12,4 +29,9 @@ page-edit-client {
     width: 50%;
 
   }
+
+  .login-content{
+    position: relative;
+  }
+
 }

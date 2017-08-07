@@ -2,14 +2,14 @@
 
   <ion-header>
     <ion-toolbar>
-      <ion-title dir="rtl">Pages</ion-title>
+      <ion-title dir="rtl">תפריט</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content  dir="rtl">
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <font size="5">{{p.title}} </font>
       </button>
     </ion-list>
   </ion-content>

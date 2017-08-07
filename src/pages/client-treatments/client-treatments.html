@@ -19,7 +19,7 @@
     <ion-row class="logo-row">
       <ion-col></ion-col>
       <ion-col width-67>
-        <img src="../../assets/images/logo.png"/>    </ion-col>
+        <img src="../../assets/images/logo_title.png" align="center"/>    </ion-col>
       <ion-col></ion-col>
     </ion-row>
 
@@ -28,7 +28,7 @@
       <td><span style="font-weight:bold">סיבת הטיפול</span></td>
     </tr>
     <tr *ngFor="let Treatment of TREATMENTS; let i = index">
-      <button ion-button (click)="showTreatment(Treatment)"> הצג טיפול</button>
+      <button ion-button (click)="showTreatment(Treatment)">{{Treatment.reasonOfTreatment}}</button>
     </tr>
   </table>
 </ion-content>
