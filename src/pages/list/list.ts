@@ -34,7 +34,8 @@ export class ListPage {
       });
     }*/
   //this.items = JSON.parse(localStorage.getItem("clients"));
-   this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
+   //this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
+    this.clientSrv.getAllClients().then(data => {
      this.items = data;
    }).catch();
 

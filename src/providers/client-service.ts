@@ -36,6 +36,12 @@ export class ClientService extends Init{
     return this.http.get(apiUrl + '?myDoctorId=' + doctorId, {headers: headers})
   }
 
+  getAllClientsHttp() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(apiUrl, {headers: headers})
+  }
+
   getClients(doctorId)
   {
     return new Promise(function(resolve,reject) {
@@ -56,6 +62,29 @@ export class ClientService extends Init{
             // AuthService.currentUser = null;
             reject("no clients");
           })
+    }.bind(this));
+  }
+
+  getAllClients()
+  {
+    return new Promise(function(resolve,reject) {
+      this.getAllClientsHttp().map(res => res.json()).subscribe(data => {
+        this.myClients = new Array();
+        if (data.length > 0) {
+          for (let c of data) {
+            let client = new Client(c.name,c.email,c.last_name,c.id,c.dataOfBirth,c.myDoctorId);
+            //let u = data[0];
+            //let user = new User(u.name, u.password, u.email, u.last_name, u.id);
+            console.log(client);
+            this.myClients.push(client);
+          }
+          console.log(JSON.stringify(data));
+          //console.log(JSON.stringify(user));
+        }
+        resolve(this.myClients);
+        // AuthService.currentUser = null;
+        reject("no clients");
+      })
     }.bind(this));
   }
 
