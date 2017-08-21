@@ -46,7 +46,8 @@ export class AddTreamentPage {
             this.currentClient = null;
         }
 
-        this.clie.getClients(this.auth.getUserInfo().id).then(data => {
+        //this.clie.getClients(this.auth.getUserInfo().id).then(data => {
+      this.clie.getAllClients().then(data => {
           this.clients = data;
         }).catch()
 
