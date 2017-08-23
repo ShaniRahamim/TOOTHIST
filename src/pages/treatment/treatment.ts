@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 export class Treatment{
-
+  id:        string;
   clientId : number;
   doctorId : number;
   anamnesis: string;

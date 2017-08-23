@@ -39,8 +39,9 @@ export class TreatmentService extends Init{
           for (let t of data) {
             console.log('create treatment');
             console.log(t);
-            let treatment = new Treatment(t.clientID, t.DoctorID, t.reasonOfTreatment);
+            let treatment = new Treatment(t.clientId, t.doctorId, t.reasonOfTreatment);
             treatment.anamnesis = t.anamnesis;
+            treatment.id = t.id;
             //let u = data[0];
             //let user = new User(u.name, u.password, u.email, u.last_name, u.id);
             console.log(treatment);
@@ -49,6 +50,7 @@ export class TreatmentService extends Init{
           console.log(JSON.stringify(data));
           //console.log(JSON.stringify(user));
         }
+        console.log(this.myTreatments);
         resolve(this.myTreatments);
         // AuthService.currentUser = null;
         reject("no treatments");
@@ -74,6 +76,17 @@ export class TreatmentService extends Init{
 
   getTreatments(){
     this.treatmens = JSON.parse(localStorage.getItem('treatments'));
+  }
+
+  //updateTreatment(trt : Treatment)
+  updateTreatment()
+  {
+    var res = this.http.post(apiUrl + 'update/' ,
+      //+ trt.id + '?' + '"anamnesis=' + trt.anamnesis + '&reasonOfTreatment=' + trt.reasonOfTreatment + '"',
+      //trt
+      ["599c8150efc8eac517a1765d",{"anamnesis": "abc"}]
+    )
+    return res;
   }
 
   public addTreatment(credentials){
@@ -103,6 +116,11 @@ export class TreatmentService extends Init{
       });*/
       return res;
     }
+  }
+
+  public editTreatment()
+  {
+
   }
 
   public editTreatmentAnamesis(treatment){

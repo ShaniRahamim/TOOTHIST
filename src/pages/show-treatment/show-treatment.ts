@@ -16,12 +16,13 @@ import {AudioRecorder, AudioRecorderState} from "../../providers/AudioRecorder";
 })
 export class ShowTreatmentPage{
 
-  curretnTreatment: Treatment = null;
+  currentTreatment: Treatment = null;
   AudioRecorderState = AudioRecorderState;
 
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public audioRecorder: AudioRecorder) {
-    this.curretnTreatment = navParams.data;
+    this.currentTreatment = navParams.data;
+    console.log(this.currentTreatment);
   }
 
   public editTreatmentAnamesis(){
@@ -31,6 +32,11 @@ export class ShowTreatmentPage{
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShowTreatmentPage');
+  }
+
+  editTreament()
+  {
+
   }
 
   startPlayback() {

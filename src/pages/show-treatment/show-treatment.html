@@ -25,26 +25,33 @@
     <h1>סיבת הטיפול</h1>
     <ion-item align="center">
 
-    <ion-input  name="סיבת הטיפול" [(ngModel)]="curretnTreatment.reasonOfTreatment" [disabled] = true></ion-input>
+    <ion-input name="סיבת הטיפול" [(ngModel)]="currentTreatment.reasonOfTreatment" [disabled] = false></ion-input>
   </ion-item>
     <h1>סיכום הטיפול</h1>
     <ion-item dir="rtl">
 
-      <textarea rows="10" cols="60"  name="סיכום הטיפול" [(ngModel)]="curretnTreatment.anamnesis" [disabled] = true></textarea>
+      <textarea rows="10" cols="60"  name="סיכום הטיפול" [(ngModel)]="currentTreatment.anamnesis" [disabled] = false></textarea>
     </ion-item>
     <p dir="rtl">
-      <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
+      <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded"
+              style="display: inline-block">
         <ion-icon name="play" align-self-start="flex-start"></ion-icon>
         תשמיע טיפול
       </button>
     </p>
     <p>
-      <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
+      <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing"
+              style="display: inline-block">
         <ion-icon name="square"></ion-icon>
         עצור שמיעת טיפול
       </button>
     </p>
 
-</form>
+    <div style="display: inline-block">
+    <ion-col class="signup-col">
+        <button ion-button class="submit-btn" (click)="editTreament()">ערוך טיפול</button>
+      </ion-col>
+    </div>
+  </form>
 </div>
 </ion-content>
