@@ -79,12 +79,13 @@ export class TreatmentService extends Init{
   }
 
   //updateTreatment(trt : Treatment)
-  updateTreatment()
+  updateTreatment(id, updateFields)
   {
-    var res = this.http.post(apiUrl + 'update/' ,
+    var res = this.http.post(apiUrl + id + '/' ,
       //+ trt.id + '?' + '"anamnesis=' + trt.anamnesis + '&reasonOfTreatment=' + trt.reasonOfTreatment + '"',
-      //trt
-      ["599c8150efc8eac517a1765d",{"anamnesis": "abc"}]
+      //trt.
+      //{"anamnesis": "Ba lo", "reasonOfTreatment": "בא לי"}
+      updateFields
     )
     return res;
   }

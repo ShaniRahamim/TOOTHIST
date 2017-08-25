@@ -34,6 +34,19 @@ export class Login {
             console.log("Platform is ready");
         });
 
+/*       this.trtSrv.updateTreatment().subscribe(success => {
+       if (success) {
+        // console.log("success");
+       //this.createSuccess = true;
+       // this.showPopup("הפעולה הושלמה", "הטיפול נוצר בהצלחה");
+       } else {
+       // this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
+       }
+       },
+       error => {
+        // console.log("error");
+       //this.showPopup("שגיאה", error);
+       });*/
 
     }
 
