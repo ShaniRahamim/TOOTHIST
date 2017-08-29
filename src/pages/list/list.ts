@@ -37,10 +37,6 @@ export class ListPage {
   //this.items = JSON.parse(localStorage.getItem("clients"));
    //this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
     let user = AuthService.currentUser;
-    if(!user){
-      user = new User("shani",1, "ddd", "dds",311306633);
-    }
-
     this.clientSrv.getClients(user.id).then(data => {
      this.items = data;
    }).catch();

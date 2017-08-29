@@ -1,57 +1,50 @@
-<!--
-  Generated template for the ShowTreatmentPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title dir="rtl">הצגת טיפול</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title dir="rtl">צפייה בטיפול</ion-title>
+    </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
-  <ion-row class="logo-row">
-    <ion-col></ion-col>
-    <ion-col width-67>
-      <img src="../../assets/images/logo.png"/>    </ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-<div align="center">
-  <form align-self-start="center">
-    <h1>סיבת הטיפול</h1>
-    <ion-item align="center">
-
-    <ion-input name="סיבת הטיפול" [(ngModel)]="currentTreatment.reasonOfTreatment" [disabled] = true></ion-input>
-  </ion-item>
-    <h1>סיכום הטיפול</h1>
-    <ion-item dir="rtl">
-
-      <textarea rows="10" cols="60"  name="סיכום הטיפול" [(ngModel)]="currentTreatment.anamnesis" [disabled] = false></textarea>
-    </ion-item>
-    <p dir="rtl">
-      <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded"
-              style="display: inline-block">
-        <ion-icon name="play" align-self-start="flex-start"></ion-icon>
-        תשמיע טיפול
-      </button>
-    </p>
-    <p>
-      <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing"
-              style="display: inline-block">
-        <ion-icon name="square"></ion-icon>
-        עצור שמיעת טיפול
-      </button>
-    </p>
-
-    <div style="display: inline-block">
-    <ion-col class="signup-col">
-        <button ion-button class="submit-btn" (click)="editTreament()">ערוך טיפול</button>
-      </ion-col>
+    <ion-row class="logo-row">
+        <ion-col></ion-col>
+        <ion-col width-67>
+            <img src="../../assets/images/logo.png"/></ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+    <div align="center" dir="rtl" >
+        <form align-self-start="center">
+            <h1>סיבת הטיפול</h1>
+            <ion-item align="right">
+                  <ion-input name="סיבת הטיפול"
+                             [(ngModel)]="currentTreatment.reasonOfTreatment"
+                             [disabled] ="!editing"></ion-input>
+            </ion-item>
+            <h1>סיכום הטיפול</h1>
+            <ion-item align="right">
+                <textarea rows="10" cols="60" name="סיכום הטיפול"
+                          [(ngModel)]="currentTreatment.anamnesis"
+                          [disabled]="!editing"></textarea>
+            </ion-item>
+            <p dir="rtl">
+                <!--<button (click)="startPlayback()" class="buttton-start-playback"
+                        [disabled]="audioRecorder.state != AudioRecorderState.Recorded"
+                        style="display: inline-block">
+                    <ion-icon name="play" align-self-start="flex-start"></ion-icon>
+                    האזן למהלך הטיפול
+                </button>-->
+                <ion-row *ngIf="!editing">
+                    <ion-col class="signup-col">
+                        <button ion-button class="submit-btn"
+                                (click)="editing = true">ערוך טיפול
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </p>
+            <ion-row *ngIf="editing">
+                <ion-col class="signup-col">
+                    <button ion-button class="submit-btn"
+                            (click)="editTreament(); editing= false">שמור שינויים</button>
+                </ion-col>
+            </ion-row>
+        </form>
     </div>
-  </form>
-</div>
 </ion-content>

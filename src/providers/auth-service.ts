@@ -21,6 +21,7 @@ export class AuthService extends Init{
     super();
     this.load();
     this.getAllTheUsers();
+    var t = this.getUserInfo();
     console.log(this.usersInThe);
 
 /*    let headers1 = new Headers();
@@ -117,18 +118,19 @@ export class AuthService extends Init{
   }
 
    public getUserInfo() : User {
-    /*if(!AuthService.currentUser){
-      AuthService.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if(!AuthService.currentUser){
+      AuthService.currentUser =
+          JSON.parse(localStorage.getItem("currentUser"));
     }
     console.log(AuthService.currentUser);
-    return AuthService.currentUser;*/
     return AuthService.currentUser;
+    //return AuthService.currentUser;
   }
 
   public logout() {
     return Observable.create(observer => {
       AuthService.currentUser = null;
-      observer.next(true);
+      observer.next(true) ;
       observer.complete();
     });
   }

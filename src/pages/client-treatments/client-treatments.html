@@ -18,7 +18,7 @@
                 *ngFor="let Treatment of TREATMENTS; let i = index" (click)="showTreatment(Treatment)">
             {{Treatment.reasonOfTreatment}}
             <div align="left">
-                {{Treatment.createdAt | date: 'dd.mm.yyyy'}}
+                {{Treatment.createdAt | date: 'hh:mm dd.MM.yyyy'}}
             </div>
         </button>
     </ion-list>
