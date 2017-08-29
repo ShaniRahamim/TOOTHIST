@@ -20,7 +20,6 @@ import {UsersRepo} from "./users/users.repo";
 import { HttpModule } from '@angular/http';
 import {Home} from "../pages/home/home";
 import {HomeModule} from "../pages/home/home.module";
-import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
