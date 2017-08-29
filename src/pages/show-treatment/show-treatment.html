@@ -7,10 +7,10 @@
     <ion-row class="logo-row">
         <ion-col></ion-col>
         <ion-col width-67>
-            <img src="../../assets/images/logo.png"/></ion-col>
+            <img src="/assets/images/logo.png"/></ion-col>
         <ion-col></ion-col>
     </ion-row>
-    <div align="center" dir="rtl" >
+    <div dir="rtl" >
         <form align-self-start="center">
             <h1>סיבת הטיפול</h1>
             <ion-item align="right">
@@ -20,11 +20,11 @@
             </ion-item>
             <h1>סיכום הטיפול</h1>
             <ion-item align="right">
-                <textarea rows="10" cols="60" name="סיכום הטיפול"
+                <textarea rows="10" cols="40" name="סיכום הטיפול"
                           [(ngModel)]="currentTreatment.anamnesis"
                           [disabled]="!editing"></textarea>
             </ion-item>
-            <p dir="rtl">
+            <p dir="rtl" align="center">
                 <!--<button (click)="startPlayback()" class="buttton-start-playback"
                         [disabled]="audioRecorder.state != AudioRecorderState.Recorded"
                         style="display: inline-block">

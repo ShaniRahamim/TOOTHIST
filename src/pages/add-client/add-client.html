@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar >
-    <ion-title dir="rtl">הוסף לקוח חדש</ion-title>
+    <ion-title dir="rtl">צור מטופל חדש</ion-title>
   </ion-navbar>
 
 
@@ -19,7 +19,7 @@
   <ion-row class="logo-row" align="center">
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="../../assets/images/user.PNG" height="200" width="200"/>
+      <img src="assets/images/user.PNG" width="200"/>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
@@ -66,7 +66,8 @@
 
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" type="submit" [disabled]="!clientForm.form.valid">שמור לקוח</button>
+          <button ion-button class="submit-btn" type="submit"
+                  [disabled]="!clientForm.form.valid">צור מטופל</button>
         </ion-col>
       </ion-row>
 

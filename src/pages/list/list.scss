@@ -27,3 +27,12 @@ page-list {
 .btn:active{
   padding-top: 1px;
 }
+#add-client{
+  background: #2da4ad;
+}
+
+@media (min-width: 576px) {
+  .button-full{
+    max-width:200px;
+  }
+}

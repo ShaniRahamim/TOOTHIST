@@ -37,6 +37,8 @@ export class MyApp {
       { title: 'בית', component: Home },
       /*{ title: 'Hello Ionic', component: HelloIonicPage },*/
       { title: 'מטופלים', component: ListPage },
+      /*{ title: 'כל הטיפולים', component: ListPage },*/
+      { title: 'התנתק', component: ListPage },
       /*{ title: 'users', component: Users },
       { title: 'treatments', component: Treatments }*/
     ];
