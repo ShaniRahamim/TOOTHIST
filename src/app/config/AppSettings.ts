@@ -1,0 +1,4 @@
+export class AppSettings  {
+   // public static API_ENDPOINT='http://127.0.0.1:1337/';
+    public static API_ENDPOINT='http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/';
+}

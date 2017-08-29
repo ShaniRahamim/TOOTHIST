@@ -15,6 +15,9 @@ import {Treatments} from "../pages/treatments/treatments";
 import {ClientService} from "../providers/client-service";
 import {TreatmentService} from "../providers/treatment-service";
 import {AudioRecorder} from "../providers/AudioRecorder";
+import {ClientsRepo} from "./clients/clients.repo";
+import {UsersRepo} from "./users/users.repo";
+import { HttpModule } from '@angular/http';
 import {Home} from "../pages/home/home";
 import {HomeModule} from "../pages/home/home.module";
 import { HttpModule } from '@angular/http';
@@ -33,7 +36,7 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     HomeModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,9 +45,7 @@ import { HttpModule } from '@angular/http';
     ItemDetailsPage,
     ListPage,
     Users,
-    Treatments,
-
-
+    Treatments
   ],
   providers: [
     StatusBar,
@@ -55,7 +56,8 @@ import { HttpModule } from '@angular/http';
     Users,
     Treatments,
     ClientService,
-
+    ClientsRepo,
+    UsersRepo,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
