@@ -7,29 +7,37 @@
   </ion-navbar>
 </ion-header>
 
+<!--
 <ion-content class="home" padding dir="rtl">
   <body dir="rtl">
   <ion-list>
 <br>
     <br>
     <br>
-    <table align="center">
-      <tr>
-        <td><span style="font-weight:bold">שם</span></td>
+    <table align="center" class="t-table">
+      <thead>
+        <th><span>שם</span></th>
 
-        <td><span style="font-weight:bold">שם משפחה</span></td>
+        <th><span>שם משפחה</span></th>
 
-        <td><span style="font-weight:bold">תעודת זהות</span></td>
-      </tr>
+        <th><span>תעודת זהות</span></th>
+        <th><span>תאריך ביקור אחרון במרפאה</span></th>
+        <th ></th>
+        <th ></th>
+
+      </thead>
     <tr *ngFor="let item of items; let i = index">
       <td>{{item.name}}</td>
       <td>{{item.last_name}}</td>
       <td>{{item.id}}</td>
-      <td>
-        <img src="../../assets/icon/editIcon.png" class="test" (click)="itemTapped($event, item)"/>
+      <td class="option">
+        <img src="../../assets/icon/editIcon.png" class="btn"
+             (click)="itemTapped($event, item)"/>
       </td>
-      <td>
-        <img src="../../assets/icon/download.jpg" (click)="deleteClient(item)"/>
+      <td class="option">
+        <img class="btn "
+                src="../../assets/icon/download.jpg" (click)="deleteClient(item)"/>
+          <ion-icon name="edit" item-left></ion-icon>
       </td>
     </tr>
     </table>
@@ -39,5 +47,25 @@
   </ion-list>
   </body>
 
+</ion-content>
+
+-->
+
+<ion-content  dir="rtl">
+    <ion-list>
+        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+            <!--<ion-icon name="{{item.icon}}" item-left></ion-icon>
+            {{item.title}}
+            <div class="item-note" item-right>
+              {{item.note}}
+            </div>-->
+            <ion-icon name="user" item-left></ion-icon>
+            <div>
+            {{item.name + " " + item.last_name}}
+            </div>
+
+        </button>
+    </ion-list>
+    <button ion-button class="button button-small"  align-self-baseline="flex-start" (click)="createClient() " outline >יצירת מטופל חדש</button>
 </ion-content>
 

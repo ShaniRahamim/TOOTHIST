@@ -22,7 +22,7 @@ export class Init {
 
   loadTreatments(){
     if (localStorage.getItem('treatments') === null ||  localStorage.getItem('treatments') === 'undefiend') {
-      var treatments = [new Treatment(312245, 1234, 'Very sick')];
+      var treatments = [new Treatment(312245, 1234, 'Very sick',"")];
       localStorage.setItem('treatments', JSON.stringify(treatments));
     }
   }

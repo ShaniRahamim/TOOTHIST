@@ -39,7 +39,7 @@ export class TreatmentService extends Init{
           for (let t of data) {
             console.log('create treatment');
             console.log(t);
-            let treatment = new Treatment(t.clientId, t.doctorId, t.reasonOfTreatment);
+            let treatment = new Treatment(t.clientId, t.doctorId, t.reasonOfTreatment, t.createdAt);
             treatment.anamnesis = t.anamnesis;
             treatment.id = t.id;
             //let u = data[0];
@@ -95,7 +95,7 @@ export class TreatmentService extends Init{
       return Observable.throw("Please insert credentials");
     } else {
 
-      this.currentTreatment = new Treatment(credentials.clientID,credentials.doctorID, credentials.reasonOfTreatment);
+      this.currentTreatment = new Treatment(credentials.clientID,credentials.doctorID, credentials.reasonOfTreatment, "");
       if(credentials.anamnesis.length > 0){
         this.currentTreatment.anamnesis = credentials.anamnesis;
       }

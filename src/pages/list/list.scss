@@ -1,11 +1,29 @@
 page-list {
-
   table, th, td {
-    border: 1px solid black;
     border-collapse: collapse;
   }
   th, td {
     padding: 20px;
   }
 
+  .t-table{
+    /*background-color: #2da4ad;*/
+    width: 100%;
+    max-width: 900px;
+    tr{
+      background-color: #2da4ad;
+      color: white;
+    }
+  }
+
+}
+
+.btn{
+  cursor: pointer;
+}
+.btn:hover{
+  opacity: 0.8;
+}
+.btn:active{
+  padding-top: 1px;
 }

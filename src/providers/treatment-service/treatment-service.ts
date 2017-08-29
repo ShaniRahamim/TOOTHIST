@@ -32,7 +32,7 @@ export class TreatmentServiceProvider extends Init{
       return Observable.throw("Please insert credentials");
     } else {
 
-      this.currentTreatment = new Treatment(credentials.doctorID, credentials.clientId, credentials.reasonOfTreatment);
+      this.currentTreatment = new Treatment(credentials.doctorID, credentials.clientId, credentials.reasonOfTreatment, "");
       this.treatmens.push(this.currentTreatment);
       localStorage.setItem('treatments', JSON.stringify(this.treatmens));
       this.currentTreatment = null;

@@ -8,12 +8,14 @@ export class Treatment{
   doctorId : number;
   anamnesis: string;
   reasonOfTreatment: string;
+  createdAt: Date;
 
-  constructor(ClientID: number, DoctorID: number,reasonOfTreatment: string){
+  constructor(ClientID: number, DoctorID: number,reasonOfTreatment: string, createdAt: string){
 
     this.clientId = ClientID;
     this.doctorId = DoctorID;
     this.reasonOfTreatment = reasonOfTreatment;
+    this.createdAt = new Date(createdAt);
   }
 
  /* constructor(ClientID: number, DoctorID: number,anamnesis: string, reasonOfTreatment: string){

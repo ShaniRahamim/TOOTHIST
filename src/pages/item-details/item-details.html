@@ -14,7 +14,7 @@
   <ion-row class="logo-row" align="center">
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="../../assets/images/logo.png" height="200" width="200"/>
+      <img src="../../assets/images/user.PNG" height="200" width="200"/>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
@@ -42,9 +42,12 @@
     <ion-item>
       <ion-input  name="מייל" [(ngModel)]="selectedItem.email" [disabled] = true></ion-input>
     </ion-item>
-
+  <br>
   <ion-row class="signup-col text-center">
     <button ion-button class="submit-btn" round type="submit" (click)="addTreatment() ">הוספת טיפול חדש</button>
+  </ion-row>
+  <br>
+  <ion-row class="signup-col text-center">
     <button ion-button class="submit-btn" round color="light" type="button"
             (click)="showTreatments()">ראה טיפולים קודמים</button>
   </ion-row>

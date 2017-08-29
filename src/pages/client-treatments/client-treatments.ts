@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Treatment} from "../treatment/treatment";
 import {AuthService} from "../../providers/auth-service";
 import {TreatmentService} from "../../providers/treatment-service";
+import {Client} from "../clients/clients";
 //import {ItemDetailsPage} from "../item-details/item-details";
 
 /**
@@ -24,10 +25,12 @@ export class ClientTreatmentsPage implements OnInit{
   TREATMENTS: any;
   doctorID: number;
   clientID: number;
+  client : Client;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private aut: AuthService, private tri: TreatmentService,
               public platform: Platform, alertCtrl: AlertController) {
     var client = this.navParams.data;
+    this.client = client;
     this.clientID = client.id;
     this.doctorID = client.myDoctorId;
   }

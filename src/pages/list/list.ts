@@ -6,6 +6,7 @@ import { ItemDetailsPage } from '../item-details/item-details';
 import {Client} from "../clients/clients";
 import {ClientService} from '../../providers/client-service';
 import {AuthService} from '../../providers/auth-service';
+import {User} from '../users/users';
 
 @Component({
   selector: 'page-list',
@@ -35,7 +36,12 @@ export class ListPage {
     }*/
   //this.items = JSON.parse(localStorage.getItem("clients"));
    //this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
-    this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
+    let user = AuthService.currentUser;
+    if(!user){
+      user = new User("shani",1, "ddd", "dds",311306633);
+    }
+
+    this.clientSrv.getClients(user.id).then(data => {
      this.items = data;
    }).catch();
 
