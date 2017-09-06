@@ -8,6 +8,10 @@ import {AudioRecorder} from "../../providers/AudioRecorder";
 import {AudioRecorderState} from "../../providers/AudioRecorder";
 import {ItemDetailsPage} from "../item-details/item-details";
 import {Client} from "../clients/clients";
+import { File } from '@ionic-native/file';
+//import {File} from 'ionic-native';
+//import {File} from "cordova-plugin-file";
+
 
 declare const SpeechRecognition: any;
 
@@ -35,20 +39,25 @@ export class AddTreamentPage {
     recording: boolean;
     recognition: any;
     AudioRecorderState = AudioRecorderState;
+    vvv: string;
+    kk: string;
 
     constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,
                 private alertCtrl: AlertController, public navParams: NavParams,
                 private auth: AuthService, private clie: ClientService,
-                private tre: TreatmentService, public platform: Platform) {
+                private tre: TreatmentService, public platform: Platform, private file: File) {
 
         this.currentClient = this.navParams.data;
+        //this.$cordovaFile =  $cordovaFile;
+        this.vvv = "toothist/tooth.wav";
         if (!this.navParams.data.id) {
             this.currentClient = null;
         }
+        this.kk = JSON.stringify(this.file);
 
         //this.clie.getClients(this.auth.getUserInfo().id).then(data => {
-      this.clie.getAllClients().then(data => {
-          this.clients = data;
+        this.clie.getAllClients().then(data => {
+            this.clients = data;
         }).catch()
 
         if (this.currentClient) {
@@ -113,21 +122,124 @@ export class AddTreamentPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad AddTreamentPage');
-
     }
+
+    /* readFromFile(fileName, cb) {
+     var pathToFile = cordova.file.dataDirectory + fileName;
+     window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
+     fileEntry.file(function (file) {
+     var reader = new FileReader();
+
+     reader.onloadend = function (e) {
+     cb(JSON.parse(this.result));
+     };
+
+     reader.readAsText(file);
+     }, errorHandler.bind(null, fileName));
+     }, errorHandler.bind(null, fileName));*/
 
     ionViewDidEnter() {
-        this.media = new MediaPlugin('../Library/NoCloud/recording.wav')
-
+        this.media = new MediaPlugin(this.vvv)
     }
+
+    startWithWrite(vvv) {
+        try {
+            this.media = new MediaPlugin(vvv);
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
+    startWithWriteExist() {
+        try {
+            this.media.startRecord();
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
+    stopWithWriteExist() {
+        try {
+            this.media.stopRecord();
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
+    playWithWriteExist() {
+        try {
+            this.media.play();
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
+    startRecording() {
+        try {
+            this.audioRecorder.startRecording();
+        }
+        catch (e) {
+            this.showAlert('Could not start recording.');
+        }
+    }
+
+    stopRecording() {
+        try {
+            this.audioRecorder.stopRecording();
+        }
+        catch (e) {
+            this.showAlert('Could not stop recording.');
+        }
+    }
+
+    startPlayback() {
+        try {
+            this.audioRecorder.startPlayback();
+        }
+        catch (e) {
+            this.showAlert('Could not play recording.');
+        }
+    }
+
+    stopPlayback() {
+        try {
+            this.audioRecorder.stopPlayback();
+        }
+        catch (e) {
+            this.showAlert('Could not stop playing recording.');
+        }
+    }
+
+    showObj() {
+        try {
+            this.showAlert(JSON.stringify(this.audioRecorder));
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
+    showObjWriter() {
+        try {
+            this.showAlert(JSON.stringify(this.media));
+        }
+        catch (e) {
+            this.showAlert(e);
+        }
+    }
+
 
     startTreatment() {
         //var d;
-        try{
+        try {
             let d = SpeechRecognition;
             this.platform.ready().then(() => {
                 this.recording = true;
-                if(d) {
+                if (d) {
                     this.recognition = new d();
                     this.recognition.lang = 'en-US';
                     this.recognition.onnomatch = (event => {
@@ -151,11 +263,20 @@ export class AddTreamentPage {
                 }
             });
         }
-        catch (exception){
+        catch (exception) {
             this.recording = true;
         }
-
-
     }
 
+
+    sendToServer(withf) {
+        if(withf){
+            this.file.listDir(this.file.dataDirectory, this.vvv).
+            then(_ => this.showAlert('Directory exists' +JSON.stringify(_) )).catch(err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+        }else{
+            this.file.listDir("",this.vvv).
+            then(_ => this.showAlert('Directory exists' +JSON.stringify(_) )).catch(err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+        }
+
+    }
 }

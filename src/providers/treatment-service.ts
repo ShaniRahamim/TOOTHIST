@@ -132,4 +132,12 @@ export class TreatmentService extends Init{
 
   }
 
+
+  public readFile(dir){
+    //console.log(dir);
+    var res= this.http.get(dir);//.success(function(response){ //do something });
+    //.success(function(response){ //do something });
+    return res;
+  }
+
 }

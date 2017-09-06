@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar >
     <ion-title dir="rtl">הוסף טיפול חדש</ion-title>
   </ion-navbar>
@@ -57,4 +56,72 @@
     </form>
   </div>
 
+  <p>
+    <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+      <ion-icon name="microphone"></ion-icon>
+      Start recording
+    </button>
+  </p>
+  <p>
+    <button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
+      <ion-icon name="mic-off"></ion-icon>
+      Stop recording
+    </button>
+  </p>
+  <p>
+    <button ion-button (click)="showObj()">
+תראה תאובייקט
+    </button>
+  </p>
+{{audioRecorder.state}}
+
+  <div ion-button (click)="startRecording()"> record </div>
+  <div  ion-button (click)="stopPlayback()">stop</div>
+
+  <div  ion-button (click)="startPlayback()">play</div>
+----
+
+  <br>
+  <br>
+  <br>
+  <br>
+-----------------------------------------------------------------------------------
+  <br>
+  <div (click)="startWithWrite(vvv)" ion-button>
+    writer
+  </div>
+  <input type="text"  [(ngModel)]="vvv">
+{{vvv}}
+
+
+
+  <div (click)="startWithWriteExist()" ion-button>
+    start writer with exist
+  </div>
+  <div (click)="stopWithWriteExist()" ion-button>
+    stop writer with exist
+  </div>
+
+  <div (click)="playWithWriteExist()" ion-button>
+    play writer with exist
+  </div>
+
+  <div (click)="stopWithWriteExist()" ion-button>
+    stop writer with exist
+  </div>
+
+  <div (click)="sendToServer(true)" ion-button>
+    send to server
+  </div>
+  <div (click)="sendToServer(false)" ion-button>
+    send to server no path start
+  </div>
+  <p>
+    <button ion-button (click)="showObjWriter()">
+      תראה תאובייקט
+    </button>
+  </p>
+{{file.dataDirectory}}
+  <br>
+  {{kk}}
 </ion-content>

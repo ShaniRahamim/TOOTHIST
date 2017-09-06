@@ -19,6 +19,7 @@ import {ClientsRepo} from "./clients/clients.repo";
 import {UsersRepo} from "./users/users.repo";
 import { HttpModule } from '@angular/http';
 import {Home} from "../pages/home/home";
+import {File} from '@ionic-native/file';
 import {HomeModule} from "../pages/home/home.module";
 
 @NgModule({
@@ -58,6 +59,7 @@ import {HomeModule} from "../pages/home/home.module";
     ClientsRepo,
     UsersRepo,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    File,
   ]
 })
 export class AppModule {}
