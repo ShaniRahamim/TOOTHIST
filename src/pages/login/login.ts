@@ -6,6 +6,7 @@ import {
 import {AuthService} from '../../providers/auth-service';
 
 declare const SpeechRecognition: any;
+//declare var MediaRecorder: any;
 
 /**
  * Generated class for the Login page.
@@ -25,6 +26,7 @@ export class Login {
     recognition: any;
     shit: any;
 
+
     constructor(private nav: NavController, private auth: AuthService,
                 private alertCtrl: AlertController, private loadingCtrl: LoadingController,
                 public platform: Platform) {
@@ -34,19 +36,20 @@ export class Login {
             console.log("Platform is ready");
         });
 
-/*       this.trtSrv.updateTreatment().subscribe(success => {
-       if (success) {
-        // console.log("success");
-       //this.createSuccess = true;
-       // this.showPopup("הפעולה הושלמה", "הטיפול נוצר בהצלחה");
-       } else {
-       // this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
-       }
-       },
-       error => {
-        // console.log("error");
-       //this.showPopup("שגיאה", error);
-       });*/
+//      let m = new MediaRecorder;
+      /*       this.trtSrv.updateTreatment().subscribe(success => {
+             if (success) {
+              // console.log("success");
+             //this.createSuccess = true;
+             // this.showPopup("הפעולה הושלמה", "הטיפול נוצר בהצלחה");
+             } else {
+             // this.showPopup("שגיאה", "ישנה בעיה ביצירת משתמש זה");
+             }
+             },
+             error => {
+              // console.log("error");
+             //this.showPopup("שגיאה", error);
+             });*/
 
     }
 

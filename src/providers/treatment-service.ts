@@ -131,5 +131,10 @@ export class TreatmentService extends Init{
     localStorage.setItem('treatments', JSON.stringify(this.treatmens));
 
   }
+  public deleteClientTreatments(clientId: number){
+    console.log(clientId);
 
+    var res = this.http.post(apiUrl + 'destroy/',{clientId: clientId});
+    return res;
+  }
 }

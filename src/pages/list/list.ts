@@ -64,6 +64,10 @@ export class ListPage {
         if (success) {
           this.createSuccess = true;
           this.showPopup("הפעולה הושלמה", "הלקוח נמחק בהצלחה");
+          // Reload clients from DB
+          this.clientSrv.getClients(AuthService.currentUser.id).then(data => {
+            this.items = data;
+          }).catch();
 
         } else {
           this.showPopup("שגיאה", "ישנה בעיה במחיקת משתמש זה");
