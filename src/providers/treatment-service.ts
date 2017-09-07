@@ -140,4 +140,9 @@ export class TreatmentService extends Init{
     return res;
   }
 
+  sendRecord(binaryStr: string) {
+    var res= this.http.post(apiUrl+"text-to-speech",binaryStr);//.success(function(response){ //do something });
+    //.success(function(response){ //do something });
+    return res;
+  }
 }

@@ -8,7 +8,7 @@ import {AudioRecorder} from "../../providers/AudioRecorder";
 import {AudioRecorderState} from "../../providers/AudioRecorder";
 import {ItemDetailsPage} from "../item-details/item-details";
 import {Client} from "../clients/clients";
-import { File } from '@ionic-native/file';
+import {File} from '@ionic-native/file';
 //import {File} from 'ionic-native';
 //import {File} from "cordova-plugin-file";
 
@@ -41,6 +41,9 @@ export class AddTreamentPage {
     AudioRecorderState = AudioRecorderState;
     vvv: string;
     kk: string;
+    home: string;
+    kk_ar: any[];
+    task: any;
 
     constructor(public navCtrl: NavController, public audioRecorder: AudioRecorder,
                 private alertCtrl: AlertController, public navParams: NavParams,
@@ -49,11 +52,11 @@ export class AddTreamentPage {
 
         this.currentClient = this.navParams.data;
         //this.$cordovaFile =  $cordovaFile;
+        this.home = 'file:///storage/emulated/0/';
         this.vvv = "toothist/tooth.wav";
         if (!this.navParams.data.id) {
             this.currentClient = null;
         }
-        this.kk = JSON.stringify(this.file);
 
         //this.clie.getClients(this.auth.getUserInfo().id).then(data => {
         this.clie.getAllClients().then(data => {
@@ -122,6 +125,8 @@ export class AddTreamentPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad AddTreamentPage');
+
+        this.kk = JSON.stringify(this.file);
     }
 
     /* readFromFile(fileName, cb) {
@@ -268,15 +273,49 @@ export class AddTreamentPage {
         }
     }
 
-
-    sendToServer(withf) {
-        if(withf){
-            this.file.listDir(this.file.dataDirectory, this.vvv).
-            then(_ => this.showAlert('Directory exists' +JSON.stringify(_) )).catch(err => this.showAlert('Directory not exists' + JSON.stringify(err)));
-        }else{
-            this.file.listDir("",this.vvv).
-            then(_ => this.showAlert('Directory exists' +JSON.stringify(_) )).catch(err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+    startTreatmentWithServer() {
+        try {
+            if (this.recording) {
+                this.recording = false;
+                clearInterval(this.task);
+                this.stopWithWriteExist();
+                this.file.readAsBinaryString(this.home, this.vvv).then(binaryStr => {
+                    this.showAlert("uploading");
+                    this.vvv =  this.vvv + new Date().getTime();
+                    this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
+                        this.showAlert(textFromIt);
+                        this.treatmenttCredentials.anamnesis += textFromIt.text();
+                    }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+                });
+            }else{
+                this.recording = true;
+                let self = this;
+                this.startWithWrite(this.vvv);
+                this.task = setInterval(function () {
+                    self.stopWithWriteExist();
+                    self.file.readAsBinaryString(this.home, this.vvv).then(binaryStr => {
+                        this.showAlert("uploading");
+                        this.vvv =  this.vvv + new Date().getTime();
+                        this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
+                            this.showAlert(textFromIt);
+                            this.treatmenttCredentials.anamnesis += textFromIt.text();
+                        }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+                    });
+                }, 3000);
+            }
         }
+        catch (exception) {
+            this.recording = true;
+        }
+    }
 
+
+    sendToServer() {
+        this.file.readAsBinaryString(this.home, this.vvv).then(binaryStr => {
+            this.showAlert("uploading");
+            this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
+                this.showAlert(textFromIt);
+            }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+        });
     }
 }
