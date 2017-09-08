@@ -285,7 +285,7 @@ export class AddTreamentPage {
                     this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
                         this.showAlert(textFromIt);
                         this.treatmenttCredentials.anamnesis += textFromIt.text();
-                    }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+                    }, err => this.showAlert('ERROR' + JSON.stringify(err)));
                 });
             }else{
                 this.recording = true;
@@ -299,7 +299,7 @@ export class AddTreamentPage {
                         this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
                             this.showAlert(textFromIt);
                             this.treatmenttCredentials.anamnesis += textFromIt.text();
-                        }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+                        }, err => this.showAlert('ERR' + JSON.stringify(err)));
                     });
                 }, 3000);
             }
@@ -315,7 +315,7 @@ export class AddTreamentPage {
             this.showAlert("uploading");
             this.tre.sendRecord(binaryStr).subscribe(textFromIt => {
                 this.showAlert(textFromIt);
-            }, err => this.showAlert('Directory not exists' + JSON.stringify(err)));
+            }, err => this.showAlert('ERR' + JSON.stringify(err)));
         });
     }
 }
