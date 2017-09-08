@@ -6,8 +6,10 @@ import {User} from "../pages/users/users";
 import {Client} from "../pages/clients/clients";
 import {Init} from "./init-users";
 import {Headers} from '@angular/http';
+import {AppSettings} from "../app/config/AppSettings";
 
-let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/user/';
+//let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/user/';
+let apiUrl = AppSettings.API_ENDPOINT + "user/";
 //user: User;
 
 @Injectable()

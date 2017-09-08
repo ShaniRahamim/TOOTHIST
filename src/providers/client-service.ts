@@ -7,6 +7,7 @@ import {Init} from "./init-users";
 import { Http } from '@angular/http';
 import {Headers} from '@angular/http';
 import {AuthService} from './auth-service';
+import {AppSettings} from "../app/config/AppSettings";
 
 /*
   Generated class for the ClientService provider.
@@ -15,7 +16,8 @@ import {AuthService} from './auth-service';
   for more info on providers and Angular 2 DI.
 */
 
-let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/client/';
+//let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/client/';
+let apiUrl = AppSettings.API_ENDPOINT + "client/";
 
 @Injectable()
 export class ClientService extends Init{

@@ -4,8 +4,10 @@ import {Treatment} from "../pages/treatment/treatment";
 import {Observable} from "rxjs/Observable";
 import { Http } from '@angular/http';
 import {Headers} from '@angular/http';
+import {AppSettings} from "../app/config/AppSettings";
 
-let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/treatment/';
+//let apiUrl = 'http://ec2-13-58-189-168.us-east-2.compute.amazonaws.com:1337/treatment/';
+let apiUrl = AppSettings.API_ENDPOINT + "treatment/";
 
 @Injectable()
 
